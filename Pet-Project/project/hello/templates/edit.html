@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <style>
+        html{
+            height: 100%;
+        }
+
+        body{
+            background-repeat: no-repeat;
+            background: linear-gradient(125deg, rgb(130,245,74) 0%, transparent 70%, rgba(16,88,235,0.35) 100%),
+            linear-gradient(165deg, rgb(57,94,224) 0%, rgb(247,77,134) 100%);
+}
+
+        input:hover{
+        border: 4px solid DodgerBlue;
+        }
+
+        input{
+        margin-top: 40px;
+        border: 4px solid DarkMagenta;
+        border-radius: 5px;
+        background: Snow;
+        width: 300px;
+        height: 40px;
+        color: Black;
+        }
+
+        .Container{
+            width: 450px;
+            height: 550px;
+            margin: auto;
+            border-radius: 25px;
+            border: 5px solid Indigo;
+            text-align: center;
+    }
+
+        .ContainerA{
+            width: 450px;
+            height: 60px;
+            background: SlateBlue;
+            border-radius: 18px 18px 0px 0px;
+            margin-top: -25px;
+    }
+
+
+        .TextStyleEdit{
+            font-size: 30px;
+            font-family: Arial Black;
+            line-height: 50px;
+    }
+
+        .ButtonEdit{
+            position: absolute;
+            margin-top: 150px;
+            margin-left: -210px;
+            width: 100px;
+            height: 40px;
+            background: SlateBlue;
+            color: Snow;
+            border-radius: 10px;
+            border: 0px solid;
+            font-size: 16px;
+            font-family: Arial Black;
+    }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="Container">
+        <div class="ContainerA">
+            <h2 class="TextStyleEdit">EDIT</h2>
+        </div>
+
+        <input type="text" name="name" placeholder="New Name:" value="{{person.name}}" />
+
+        <input type="number" name="age" placeholder="New Age:" value="{{person.age}}" />
+
+        <input type="email" name="email" placeholder="New Email:" value="{{person.email}}" />
+
+        <input type="password" name="password" placeholder="New Password:" value="{{person.password}}" />
+
+        <button class="ButtonEdit">CONFIRM</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+    html{
+        height: 100%;
+    }
+
+    body{
+        background-image: url("https://framerusercontent.com/images/HrIy96BsUnnraQXI9PNriB26GtM.png?scale-down-to=2048");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    input:hover{
+        border: 4px solid DodgerBlue;
+    }
+
+    .StyleRegister:hover{
+        color: Indigo;
+        border-bottom: 5px solid Snow;
+    }
+
+    .ButtonLogin:hover{
+        background: DarkMagenta;
+    }
+
+    input{
+        margin-top: 40px;
+        border: 4px solid DarkMagenta;
+        border-radius: 15px;
+        background: Snow;
+        width: 300px;
+        height: 40px;
+        color: Black;
+    }
+
+    .Container{
+        width: 450px;
+        height: 350px;
+        margin: 0 auto;
+        text-align: center;
+        border: 10px solid Indigo;
+        border-radius: 25px;
+    }
+
+    .StyleRegister{
+        font-size: 30px;
+        font-family: Arial Black;
+        text-decoration: none;
+        color: Black;
+        border-bottom: 5px solid;
+    }
+
+    .StyleLogin{
+        font-size: 30px;
+        font-family: Arial Black;
+        margin-left: 40px;
+        text-decoration: none;
+        color: Snow;
+        border-bottom: 5px solid Indigo;
+    }
+
+    .ContainerA{
+        width: 450px;
+        height: 60px;
+        background: SlateBlue;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .ButtonLogin{
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        background: SlateBlue;
+        margin-top: 150px;
+        margin-left: -205px;
+        border-radius: 10px;
+        border: 0px solid;
+        color: Snow;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+<form method="POST" action="http://127.0.0.1:8000/login/">
+    {% csrf_token %}
+    <div class="Container">
+    <div class="ContainerA">
+        <a class="StyleRegister" href="http://127.0.0.1:8000/register/">SIGN UP</a>
+        <a class="StyleLogin" href="http://127.0.0.1:8000/login/">SIGN IN</a>
+    </div>
+
+    <input type="text" name="name" placeholder="Name:" />
+
+    <input type="password" name="password" placeholder="Password:" />
+
+    <button class="ButtonLogin">LOGIN</button>
+    </div>
+</form>
+</body>
+</html>
