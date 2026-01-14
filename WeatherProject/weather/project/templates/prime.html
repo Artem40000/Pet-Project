@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <style>
+        html{
+            height: 100%;
+        }
+
+        body{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background: linear-gradient(0deg, #0188FF, #1A2D66);
+        }
+
+        a{
+            text-decoration: none;
+            color: Snow;
+        }
+
+        .ContainerLocation:hover{
+            border-bottom: 5px solid Snow;
+            border-right: 5px solid Snow;
+        }
+
+        .ContainerLocation:hover .ContainerRussia,
+        .ContainerLocation:hover .ContainerAmerica{
+            opacity: 1;
+        }
+
+        .ContainerRussia:hover{
+            border-bottom: 5px solid Snow;
+            border-right: 5px solid Snow;
+        }
+
+        .ContainerAmerica:hover{
+            border-left: 5px solid Snow;
+            border-bottom: 5px solid Snow;
+            border-right: 5px solid Snow;
+        }
+
+        .ContainerRussia:hover .Moscow,
+        .ContainerRussia:hover .Kazan{
+            opacity: 1;
+        }
+
+        .Moscow:hover{
+            border-bottom: 5px solid Snow;
+            border-right: 5px solid Snow;
+        }
+
+        .Kazan:hover{
+            border-bottom: 5px solid Snow;
+            border-right: 5px solid Snow;
+            border-left: 5px solid Snow;
+        }
+
+        .NewYork:hover{
+            border-bottom: 5px solid Snow;
+            border-right: 5px solid Snow;
+            border-left: 5px solid Snow;
+        }
+
+        .Chicago:hover{
+            border-bottom: 5px solid Snow;
+            border-right: 5px solid Snow;
+            border-left: 5px solid Snow;
+        }
+
+        .ContainerAmerica:hover .Chicago,
+        .ContainerAmerica:hover .NewYork{
+            opacity: 1;
+        }
+
+        .ContainerLocation{
+            width: 500px;
+            height: 100px;
+            margin-left: -10px;
+            margin-top: -30px;
+            font-family: Arial Black;
+            font-size: 20px;
+            text-align: center;
+            line-height: 90px;
+            background: linear-gradient(315deg, #525252, #010101);
+            color: Snow;
+            border-bottom: 5px solid Black;
+            border-right: 5px solid Black;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ContainerRussia{
+            width: 250px;
+            height: 100px;
+            margin-left: -10px;
+            margin-top: -10px;
+            font-family: Arial Black;
+            font-size: 18px;
+            text-align: center;
+            line-height: 90px;
+            background: Gray;
+            color: Black;
+            border-bottom: 5px solid Black;
+            border-right: 5px solid Black;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .ContainerAmerica{
+            width: 250px;
+            height: 100px;
+            margin-left: 245px;
+            margin-top: -127px;
+            font-family: Arial Black;
+            font-size: 18px;
+            text-align: center;
+            line-height: 90px;
+            background: Gray;
+            color: Black;
+            border-bottom: 5px solid Black;
+            border-right: 5px solid Black;
+            border-left: 5px solid Black;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .Moscow{
+            width: 115px;
+            height: 50px;
+            margin-left: 10px;
+            margin-top: -7px;
+            font-family: Arial Black;
+            font-size: 18px;
+            line-height: 50px;
+            background: Gray;
+            border-bottom: 5px solid Black;
+            border-right: 5px solid Black;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .Kazan{
+            width: 115px;
+            height: 50px;
+            margin-left: 130px;
+            margin-top: -55px;
+            font-family: Arial Black;
+            font-size: 18px;
+            line-height: 50px;
+            background: Gray;
+            border-bottom: 5px solid Black;
+            border-right: 5px solid Black;
+            border-left: 5px solid Black;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .Chicago{
+            width: 120px;
+            height: 50px;
+            margin-left: -5px;
+            margin-top: -8px;
+            font-family: Arial Black;
+            font-size: 18px;
+            line-height: 50px;
+            background: Gray;
+            border-bottom: 5px solid Black;
+            border-right: 5px solid Black;
+            border-left: 5px solid Black;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .NewYork{
+            width: 120px;
+            height: 50px;
+            margin-left: 125px;
+            margin-top: -55px;
+            font-family: Arial Black;
+            font-size: 18px;
+            line-height: 50px;
+            background: Gray;
+            border-bottom: 5px solid Black;
+            border-right: 5px solid Black;
+            border-left: 5px solid Black;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div class="ContainerLocation">
+        <h2>Location</h2>
+
+            <div class="ContainerRussia">
+                <h2>Russia</h2>
+                <a href="http://127.0.0.1:8000/Moscow/"><div class="Moscow">Moscow</div></a>
+                <a href="http://127.0.0.1:8000/Kazan/"><div class="Kazan">Kazan</div></a>
+            </div>
+
+                <div class="ContainerAmerica">
+                    <h2>America</h2>
+                    <a href="http://127.0.0.1:8000/Chicago/"><div class="Chicago">Chicago</div></a>
+                    <a href="http://127.0.0.1:8000/NewYork/"><div class="NewYork">New-York</div></a>
+                </div>
+    </div>
+</form>
+</body>
+</html>
