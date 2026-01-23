@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        html{
+            height: 100%;
+        }
+
+        body{
+            background-image: url("https://img.freepik.com/premium-photo/full-pink-moon-black-water-night-sky-photorealistic-cinematic-look_1100672-5693.jpg?semt=ais_hybrid&w=740");
+            background-size: cover;
+        }
+
+        .ButtonLogin:hover{
+            background: DarkMagenta;
+            transition: 0.2s linear;
+        }
+
+        input:hover{
+            border-radius: 10px;
+            border: 3px solid Navy;
+        }
+
+        input{
+            border-radius: 10px;
+            border: 3px solid Magenta;
+            width: 300px;
+            height: 40px;
+            margin-top: 40px;
+            background: WhiteSmoke;
+        }
+
+        .Container{
+            width: 500px;
+            height: 600px;
+            background: rgb(75, 0, 130, 0.1);
+            backdrop-filter: blur(10px);
+            margin: auto;
+            text-align: center;
+            border-radius: 25px;
+            border: 5px solid Indigo;
+            color: Snow;
+        }
+
+        .TextStyleRegister{
+            font-family: Arial Black;
+            font-size: 30px;
+        }
+
+        .ButtonLogin{
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background: Magenta;
+            border-radius: 15px;
+            border: 0px solid;
+            color: Snow;
+            margin-top: 150px;
+            margin-left: -200px;
+        }
+
+        .Register{
+            position: absolute;
+            margin-top: 230px;
+            margin-left: -175px;
+            text-decoration: none;
+            color: Cyan;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" action="http://127.0.0.1:8000/login/">
+    {% csrf_token %}
+    <div class="Container">
+        <h2 class="TextStyleRegister">Login</h2>
+
+        <input type="text" name="name" placeholder="Name:">
+
+        <input type="password" name="password" placeholder="Password:">
+
+        <button class="ButtonLogin">LOGIN</button>
+        <a class="Register" href="http://127.0.0.1:8000/register/">Register</a>
+    </div>
+</form>
+</body>
+</html>
