@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        html{
+            height: 100%;
+        }
+
+        body{
+                background-image: url("https://i.pinimg.com/736x/0b/e1/c5/0be1c559e9b319efe4a5cea54aed8da3.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                text-align: center;
+        }
+
+        button:hover{
+                text-shadow: 0 0 17px #fff,
+                0 0 20px #fff,
+                0 0 40px #fff;
+
+                transition: all 0.1s ease-in;
+                background: DarkOrange;
+        }
+
+        input:hover{
+                border: 3px solid DimGray;
+                border-radius: 5px;
+        }
+
+        input{
+                margin-top: 30px;
+                border: 3px solid PapayaWhip;
+                border-radius: 5px;
+                background: Snow;
+                width: 275px;
+                height: 40px;
+                color: Black;
+        }
+
+        .Container{
+                background: LightGoldenrodYellow;
+                width: 400px;
+                height: 500px;
+                margin: auto;
+                margin-top: 50px;
+                color: red;
+                border: 5px solid DarkGreen;
+                border-radius: 30px;
+    }
+
+        .Register{
+                font-family: Arial Black;
+                color: Black;
+                margin-top: 10px;
+    }
+
+        button{
+                width: 150px;
+                height: 40px;
+                margin-top: 30px;
+                border: 3px;
+                border-radius: 5px;
+                background: MediumSeaGreen;
+                color: White;
+                font-size: 20px;
+    }
+
+        .Login{
+                position: absolute;
+                margin-top: 100px;
+                margin-left: -95px;
+                color: DeepSkyBlue;
+    }
+    </style>
+</head>
+<body>
+    <form method="POST" action="http://127.0.0.1:8000/create/">
+        {% csrf_token %}
+        <div class="Container">
+            <h2 class="Register">Register</h2>
+
+            <input type="text" name="Name" placeholder="Name:" />
+
+            <input type="email" name="Email" placeholder="Email:" />
+
+            <input type="password" name="Password" placeholder="Password:" />
+
+            <button>Register</button>
+
+            <a class='Login' href='http://127.0.0.1:8000/login/' style="text-decoration: none">login</a>
+        </div>
+    </form>
+</body>
+</html>
