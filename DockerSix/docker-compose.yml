@@ -1,0 +1,35 @@
+services:
+  django:
+    build: .
+    container_name: django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/python
+    depends_on:
+      - pgdb
+
+    ports:
+      - "8000:8000"
+
+    networks:
+      - app-network
+
+  pgdb:
+    image: postgres
+    environment:
+      - POSTGRES_DB=DockerS
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    container_name: pgdb
+    volumes:
+      - pgdbData:/var/lib/postgresql
+
+    networks:
+      - app-network
+
+volumes:
+  pgdbData: null
+
+networks:
+  app-network:
+    driver: bridge

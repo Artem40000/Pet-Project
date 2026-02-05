@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User <{{person.Name}}></title>
+    <style>
+        body{
+            background: #434a54
+        }
+
+        .Container{
+            width: 500px;
+            height: 500px;
+            background: #034f84;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 10px;
+            border: 0px solid;
+        }
+
+        .TextStyleReg{
+            font-size: 30px;
+            line-height: 50px;
+            color: Snow;
+            border-bottom: 5px solid Indigo;
+        }
+
+        .TextStyleLog{
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            background: #4a89dc;
+            line-height: 50px;
+            border-radius: 100%;
+            font-family: Arial;
+        }
+
+        .TextStyleLog:hover{
+            background: #4fc1e9;
+            transition: 0.2s linear;
+        }
+
+        input{
+            width: 350px;
+            height: 45px;
+            border-radius: 10px;
+            border: 3px solid Indigo;
+            margin-top: 30px;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        input:hover{
+            border: 3px solid SkyBlue;
+        }
+
+        button{
+            width: 175px;
+            height: 55px;
+            border-radius: 20px;
+            border: 0px solid;
+            margin-top: 50px;
+            font-size: 28px;
+            font-family: Impact;
+            color: Snow;
+            background: #4fc1e9;
+        }
+
+        button:hover{
+            background: #4a89dc;
+            transition: 0.2s linear;
+        }
+
+        a{
+            position: absolute;
+            text-decoration: none;
+            color: Snow;
+            margin-top: 80px;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="Container">
+        <h2 class="TextStyleReg">Редактирование</h2>
+
+        <input type="text" name="Name" placeholder="{{person.Name}}: " />
+
+        <input type="number" name="Age" placeholder="{{person.Age}}: " />
+
+        <input type="password" name="Password" placeholder="{{person.Password}}: " />
+
+        <button>CONFIRM</button>
+    </div>
+</form>
+</body>
+</html>
