@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+        body{
+            background: rgb(25, 25, 25)
+        }
+
+        .Container{
+            width: 650px;
+            height: 450px;
+            background: rgb(50, 50, 50);
+            border: 0;
+            border-radius: 25px;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
+            display: flex;
+        }
+
+        .TextStyleSignUp{
+            font-size: 30px;
+            font-family: Verdana;
+            color: Snow;
+            text-align: center;
+            margin-left: 150px;
+        }
+
+
+        input{
+            position: absolute;
+            width: 400px;
+            height: 65px;
+            border: 0;
+            border-radius: 15px;
+            background: rgb(175, 175, 175);
+            margin-left: 25px;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        input:hover{
+            background: Snow;
+            transition: 0.3s ease;
+        }
+
+        .InputOne{
+            margin-top: 100px;
+        }
+        .InputTwo{
+            margin-top: 200px;
+        }
+        .InputThree{
+            margin-top: 300px;
+        }
+
+
+        button{
+            width: 200px;
+            height: 50px;
+            border: 0;
+            border-radius: 15px;
+            font-size: 30px;
+            color: Snow;
+            background: rgb(75, 75, 75);
+            font-family: Impact;
+            margin-top: 385px;
+            margin-left: -169.5px;
+        }
+
+        button:hover{
+            background: rgb(100, 100, 100);
+            transition: 0.3s ease;
+        }
+
+
+        .Login{
+            width: 190px;
+            height: 50px;
+            background: rgb(75, 75, 75);
+            margin-top: 385px;
+            margin-left: 5px;
+            border: 0;
+            border-radius: 15px;
+            font-size: 30px;
+            font-family: Impact;
+            color: Snow;
+            line-height: 50px;
+        }
+
+        .Login:hover{
+            background: rgb(100, 100, 100);
+            transition: 0.3s ease;
+        }
+
+
+        .ContainerLogin{
+            position: absolute;
+            width: 200px;
+            height: 450px;
+            background: rgb(35, 35, 35);
+            margin-left: 450px;
+            border: 0;
+            border-radius: 0 25px 25px 0;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" action="http://localhost:8000/create/">
+    {% csrf_token %}
+    <div class="Container">
+        <h2 class="TextStyleSignUp">SIGN UP</h2>
+
+        <input type="text" name="Name" placeholder="Name:" class="InputOne">
+        <input type="email" name="Email" placeholder="Email:" class="InputTwo">
+        <input type="password" name="Password" placeholder="Password:" class="InputThree">
+
+        <button>CONFIRM</button>
+
+        <div class="ContainerLogin">
+            <a style="text-decoration:none" href="http://localhost:8000/login/"><h2 class="Login">LOGIN</h2></a>
+        </div>
+    </div>
+</form>
+</body>
+</html>

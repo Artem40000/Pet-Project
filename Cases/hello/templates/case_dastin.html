@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дастин</title>
+    <style>
+        body{
+            background: rgb(25, 25, 25);
+        }
+
+
+        .ContainerCases{
+            width: 300px;
+            height: 100%;
+            margin-top: -10px;
+            margin: auto;
+            display: flex;
+        }
+
+        .ContainerCases > h2{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            font-size: 40px;
+            font-family: Arial Black;
+            color: Snow;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .ContainerCases > h2:hover{
+            box-shadow: inset 0 0 15px SkyBlue;
+        }
+
+        .ContainerItems{
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ContainerItems > h2{
+            width: 250px;
+            height: 250px;
+            background: rgb(50, 50, 50);
+            margin: auto;
+            box-shadow: inset 0 0 10px Gray;
+        }
+
+        p{
+            color: Snow;
+            padding-left: 10px;
+            font-size: 21px;
+        }
+
+        .Items{
+            font-size:30px;
+            color:Snow;
+            font-family:Arial Black;
+            text-align:center;
+        }
+
+        .Open{
+            width: 325px;
+            height: 65px;
+            margin: auto;
+            text-align: center;
+            background: #4caf50;
+            border: 0;
+            border-radius: 15px;
+            font-size: 35px;
+            color: Snow;
+            font-family: Arial Black;
+            line-height: 65px;
+            margin-top: 25px;
+            cursor: pointer;
+
+            &:hover{
+                background: Green;
+                transition: background 0.3s ease;
+            }
+        }
+
+        .ContainerItemsDrop{
+            width: 250px;
+            height: 100%;
+            background: rgb(40, 40, 40);
+            margin: auto;
+            display: none;
+            margin-top: 200px;
+        }
+
+        .ContainerItemsDrop > h2{
+            width: 250px;
+            height: 250px;
+            background: rgb(50, 50, 50);
+            margin: auto;
+            box-shadow: inset 0 0 10px SkyBlue;
+        }
+
+        .Back{
+            width: 325px;
+            height: 65px;
+            margin: auto;
+            text-align: center;
+            background: #21c7ff;
+            border: 0;
+            border-radius: 15px;
+            font-size: 35px;
+            color: Snow;
+            font-family: Arial Black;
+            line-height: 65px;
+            margin-top: 25px;
+            cursor: pointer;
+
+            &:hover{
+                background: #0086d1;
+                transition: background 0.3s ease;
+            }
+        }
+
+        a{
+            text-decoration: none;
+            display: block;
+            width: auto;
+            max-width: min-content;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="ContainerCases">
+    <h2 class="CaseOne">ДАСТИН<img src="https://cdn.gamecontent.io/images/case/771/back/middle-695fca07c3fce.png"></h2>
+</div>
+
+<div class="ContainerItemsDrop">
+    <h2><img src="{{UrlR}}" style="padding-left:40px">
+        <p>{{pOneR}}<br>{{pTwoR}}</p>
+    </h2>
+</div>
+<a href="http://localhost:8000/prime/{{person.Name}}"><h2 class="Back">НАЗАД</h2></a>
+
+<h2 class="Open">ОТКРЫТЬ</h2>
+<h2 class="Items">СОДЕРЖИМОЕ КЕЙСА</h2>
+<div class="ContainerItems">
+    {% for item in Item %}
+        <h2><img src="{{item.Url}}" style="padding-left:40px">
+            <p>{{item.pOne}}<br>{{item.pTwo}}</p>
+        </h2>
+    {% endfor %}
+</div>
+<script>
+const Open = document.querySelector('.Open')
+const ContainerItems = document.querySelector('.ContainerItems')
+const Items = document.querySelector('.Items')
+const ContainerItemsDrop = document.querySelector('.ContainerItemsDrop')
+let isClickedOpen;
+
+
+
+Open.addEventListener('click', function() {
+    Items.style.display = 'none';
+    ContainerItems.style.display = 'none';
+    Open.style.display = 'none';
+    ContainerItemsDrop.style.display = 'flex';
+});
+</script>
+</body>
+</html>

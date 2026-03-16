@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <style>
+        body{
+            background: rgb(25, 25, 25);
+        }
+
+        .ContainerFixed{
+            position: fixed;
+            width: 100%;
+            height: 150px;
+            background: rgb(50, 50, 50);
+            margin-left: -8px;
+            margin-top: -308px;
+            display: flex;
+        }
+
+        .ContainerFixed > h2{
+            background: rgb(75, 75, 75);
+            font-size: 35px;
+            color: Snow;
+            font-family: Arial Black;
+            height: 100px;
+            width: 25%;
+            margin-top: 25px;
+            text-align: center;
+            line-height: 90px;
+            border-radius: 25px;
+            box-shadow: 0 0 15px 0 rgb(75, 75, 75);
+            cursor: pointer;
+        }
+
+        .ContainerFixed > h2:hover{
+            background: rgb(125, 125, 125);
+            box-shadow: 0 0 15px 0 rgb(125, 125, 125);
+            transition: background 0.5s ease;
+        }
+
+            .Account{
+                margin-left: auto;
+                margin-right: 10px;
+            }
+
+            .Inventory{
+                margin: auto;
+            }
+
+            .Cases{
+                margin-right: auto;
+                margin-left: 10px;
+            }
+
+
+
+        .ContainerAccount{
+            width: 100%;
+            height: 600px;
+            margin-top: 160px;
+            display: none;
+        }
+
+        h1{
+            width: 100%;
+            height: 100px;
+            background: rgb(75, 75, 75);
+            font-size: 40px;
+            font-family: Arial Black;
+            text-align: left;
+            padding-left: 5px;
+            margin-top: 30px;
+            line-height: 100px;
+            color: Snow;
+            border-radius: 25px;
+            box-shadow: 0 0 10px 0 Snow;
+        }
+
+            span{
+                color: rgb(200, 200, 200);
+                padding-left: 15px;
+            }
+
+            a{
+                text-decoration: none;
+                display: block;
+                width: auto;
+                max-width: min-content;
+            }
+
+            .Edit{
+                width: 300px;
+                height: 75px;
+                background: #4caf50;
+                margin-right: auto;
+                margin-left: 200px;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 40px;
+                color: Snow;
+                font-family: Arial Black;
+                line-height: 70px;
+                cursor: pointer;
+            }
+
+            .Confirm{
+                width: 300px;
+                height: 75px;
+                background: #4caf50;
+                margin-right: auto;
+                margin-left: 200px;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 40px;
+                color: Snow;
+                font-family: Arial Black;
+                line-height: 70px;
+                cursor: pointer;
+                display: none;
+            }
+
+            .Delete{
+                width: 300px;
+                height: 75px;
+                background: #dc3400;
+                margin-left: auto;
+                margin-right: 200px;
+                margin-top: -108.5px;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 40px;
+                color: Snow;
+                font-family: Arial Black;
+                line-height: 70px;
+            }
+
+
+
+        .ContainerCases{
+            width: 100%;
+            height: 100%;
+            margin-top: 300px;
+            display: flex;
+        }
+
+        input{
+            width: 100%;
+            height: 100px;
+            border: 0;
+            background: rgb(75, 75, 75);
+            font-size: 40px;
+            font-family: Arial Black;
+            text-align: left;
+            padding-left: 5px;
+            margin-top: 30px;
+            color: Snow;
+            border-radius: 25px;
+            box-shadow: 0 0 10px 0 Snow;
+            display: none;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        .ContainerCases > img{
+            width: 270px;
+        }
+
+        .ContainerCases > h2{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            font-size: 40px;
+            font-family: Arial Black;
+            color: Snow;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .ContainerCases > h2:hover{
+            box-shadow: inset 0 0 15px SkyBlue;
+        }
+
+        .ContainerInvItems{
+            display: none;
+            width: 100%;
+            height: 100%;
+            margin-top: 200px;
+            background: rgb(75, 75, 75);
+            flex-wrap: wrap;
+        }
+
+        .ContainerInvItems > h2{
+            width: 250px;
+            height: 250px;
+            background: rgb(50, 50, 50);
+            margin-right: auto;
+            box-shadow: inset 0 0 10px Gray;
+            box-sizing: border-box;
+        }
+
+        p{
+            color: Snow;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" action="http://localhost:8000/prime/{{person.Name}}">
+    {% csrf_token %}
+    <div class="ContainerFixed">
+        <h2 class="Cases">Cases</h2>
+
+        <h2 class="Inventory">Inventory</h2>
+
+        <h2 class="Account">Account</h2>
+    </div>
+
+    <div class="ContainerAccount">
+        <h1 class="Name">NAME:<span>{{person.Name}}</span></h1>
+        <h1 class="Email">EMAIL:<span>{{person.Email}}</span></h1>
+        <h1 class="Password">PASSWORD:<span>{{person.Password}}</span></h1>
+
+            <input type="text" name="Name" placeholder="Name:" value="{{person.Name}}" style="margin-top:0px" class="One">
+            <input type="email" name="Email" placeholder="Email:" value="{{person.Email}}" class="Two">
+            <input type="password" name="Password" placeholder="Password:" value="{{person.Password}}" class="Three">
+
+        <h2 class="Edit">EDIT</h2>
+        <button class="Confirm">CONFIRM</button>
+        <a href="http://localhost:8000/delete/{{person.Name}}" style="margin-left:auto"><h2 class="Delete">DELETE</h2></a>
+    </div>
+
+    <div class="ContainerCases">
+        <h2 class="CaseOne">ЙЕТИ<a href="http://localhost:8000/case/yeti"><img src="https://cdn.gamecontent.io/images/case/781/back/middle-697c622d8c712.png"></a></h2>
+        <h2 class="CaseTwo">КРАКЕН<a href="http://localhost:8000/case/cracken"><img src="https://cdn.gamecontent.io/images/case/783/back/middle-697c68e2c5fb6.png"></a></h2>
+        <h2 class="CaseThree">ДАСТИН<a href="http://localhost:8000/case/dastin"><img src="https://cdn.gamecontent.io/images/case/771/back/middle-695fca07c3fce.png"></a></h2>
+    </div>
+
+    <div class="ContainerInvItems">
+        {% for item in items %}
+            <h2><img src="{{item.Url}}" style="padding-left:40px">
+                <p>{{item.pOne}}<br>{{item.pTwo}}</p>
+            </h2>
+        {% endfor %}
+    </div>
+</form>
+<script>
+const ContainerCases = document.querySelector('.ContainerCases')
+const ContainerAccount = document.querySelector('.ContainerAccount')
+const ContainerFixed = document.querySelector('.ContainerFixed')
+const Account = document.querySelector('.Account')
+const Cases = document.querySelector('.Cases')
+const One = document.querySelector('.One')
+const Two = document.querySelector('.Two')
+const Three = document.querySelector('.Three')
+const Name = document.querySelector('.Name')
+const Email = document.querySelector('.Email')
+const Password = document.querySelector('.Password')
+const Edit = document.querySelector('.Edit')
+const Confirm = document.querySelector('.Confirm')
+const Delete = document.querySelector('.Delete')
+const Inventory = document.querySelector('.Inventory')
+const ContainerInvItems = document.querySelector('.ContainerInvItems')
+let isClickedAccount = false;
+let isClickedCases = false;
+let isClickedEdit = false;
+let isClickedInventory = false;
+
+
+Account.addEventListener('click', function() {
+    if (!isClickedAccount){
+        ContainerCases.style.display = 'none';
+        ContainerAccount.style.display = 'block';
+        ContainerFixed.style.marginTop = '-168px';
+        ContainerInvItems.style.display = 'none';
+    }
+});
+
+Cases.addEventListener('click', function() {
+    if (!isClickedCases){
+        ContainerAccount.style.display = 'none';
+        ContainerCases.style.display = 'flex';
+        ContainerFixed.style.marginTop = '-308px';
+        ContainerInvItems.style.display = 'none';
+    }
+});
+
+Inventory.addEventListener('click', function() {
+    if (!isClickedInventory) {
+        ContainerCases.style.display = 'none';
+        ContainerAccount.style.display = 'none';
+        ContainerFixed.style.marginTop = '-208px';
+        ContainerInvItems.style.display = 'flex';
+    }
+});
+
+Edit.addEventListener('click', function() {
+    if (!isClickedEdit) {
+        Name.style.display = 'none';
+        Email.style.display = 'none';
+        Password.style.display = 'none';
+        One.style.display = 'block';
+        Two.style.display = 'block';
+        Three.style.display = 'block';
+        Edit.style.display = 'none';
+        Confirm.style.display = 'block';
+        Confirm.style.marginTop = '50px';
+        Delete.style.marginTop = '-75px';
+    }
+});
+</script>
+</body>
+</html>
