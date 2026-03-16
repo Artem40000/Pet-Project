@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatAi</title>
+    <style>
+        html{
+            height: 100%
+        }
+
+        body{
+            background: rgb(25, 25, 25)
+        }
+
+        .TextStyleHello{
+            color: rgb(175, 175, 175);
+            text-align: center;
+            font-size: 40px;
+            font-family: Arial;
+        }
+
+        .InputSearch{
+            position: fixed;
+            width: 1000px;
+            height: 125px;
+            background: rgb(40, 40, 40);
+            padding-left: 25px;
+            font-size: 30px;
+            color: Snow;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 25px;
+            border: 0;
+            box-shadow: 0 -5px 30px 0 rgb(40, 40, 40)
+        }
+
+
+        .InputSearch:focus{
+            outline: none;
+        }
+
+        .Info{
+            width: 1025px;
+            height: 100%;
+            margin: auto;
+            font-family: arial black;
+            max-width: 100%;
+        }
+
+        .HeaderOne{
+            font-size: 30px;
+            color: White;
+            animation: Text 1s forwards;
+
+            white-space: pre-line;
+            word-wrap: break-word;
+            overflow: hidden;
+        }
+
+        .HeaderTwo{
+            font-size: 30px;
+            color: rgb(225, 225, 225);
+            padding-left: 5px;
+            animation: Text 1.5s forwards;
+
+            white-space: pre-line;
+            word-wrap: break-word;
+            overflow: hidden;
+        }
+
+        .Paragraph{
+            font-size: 20px;
+            color: rgb(195, 195, 195);
+            padding-left: 10px;
+            animation: Text 2.5s forwards;
+        }
+
+
+        @keyframes Text{
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .no-animation .HeaderOne,
+        .no-animation .HeaderTwo,
+        .no-animation .Paragraph{
+            animation: none;
+        }
+
+
+        .Loading{
+            margin: auto;
+            margin-top: -30px;
+            color: rgb(200, 200, 200);
+            width: 1000px;
+            height: 50px;
+            display: none;
+        }
+
+        .PointOne{
+            text-align: center;
+            margin-top: -5px;
+            margin-left: 10px;
+            color: Gray;
+            font-size: 50px;
+        }
+        .PointTwo{
+            text-align: center;
+            margin-left: 10px;
+            margin-top: -5px;
+            color: Gray;
+            font-size: 50px;
+        }
+        .PointThree{
+            text-align: center;
+            margin-left: 10px;
+            margin-top: -5px;
+            color: Gray;
+            font-size: 50px;
+        }
+
+
+        @keyframes PointAnim{
+            1%{
+                color: #23dff8;
+            }
+            25%{
+                color: #673ab7;
+            }
+            50%{
+                translate: 0px -10px;
+            }
+            75%{
+                color: #8a5dda;
+            }
+            100%{
+                color: #bf4ad3;
+            }
+        }
+
+        .AnimOne.PointOne{
+            animation: PointAnim 0.3s ease forwards;
+        }
+        .AnimTwo.PointTwo{
+            animation: PointAnim 0.3s 0.3s ease forwards;
+        }
+        .AnimThree.PointThree{
+            animation: PointAnim 0.3s 0.9s ease forwards;
+        }
+
+        .MessageField{
+            position: relative;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: rgb(50, 50, 50);
+            margin: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: 60%;
+            text-align: left;
+            border: 0;
+            border-radius: 15px 0 15px 15px;
+        }
+
+        .Message{
+            font-size: 20px;
+            font-family: arial black;
+            color: rgb(225, 225, 225);
+            right: 0;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow: hidden;
+            transition: width 0.3s ease;
+        }
+
+
+
+        .ContainerQueries{
+            position: fixed;
+            top: 0;
+            margin-left: -8px;
+            width: 75px;
+            height: 100%;
+            background: rgb(40, 40, 40);
+            color: rgb(175, 175, 175);
+        }
+
+
+
+        .ScrollQueries{
+            width: 75px;
+            height: 75px;
+            background: rgb(25, 25, 25);
+            text-align: center;
+            font-size: 75px;
+            font-family: Arial Black;
+            line-height: 75px;
+            margin-top: 0;
+            cursor: pointer;
+            color: rgb(100, 100, 100);
+        }
+
+        .AllQueries{
+            font-size: 22px;
+            font-family: Arial;
+            margin-top: -105px;
+            margin-left: 100px;
+            display: none;
+        }
+
+        .Queries{
+            margin: auto;
+            width: 300px;
+            height: 50px;
+            background: rgb(50, 50, 50);
+            color: rgb(175, 175, 175);
+            text-align: center;
+            margin-top: 40px;
+            font-size: 40px;
+            font-family: Arial;
+            border: 5px solid rgb(35, 35, 35);
+            border-radius: 25px;
+            display: none;
+        }
+
+        .Queries:hover{
+            border: 5px solid rgb(75, 75, 75);
+            transition: 0.3s ease;
+        }
+
+        @keyframes ScrollQueries{
+            100%{
+                width: 350px;
+            }
+        }
+
+        @keyframes DisplayQueries{
+            100%{
+                display: block;
+            }
+        }
+
+        .ContainerQueries.Anim{
+            animation: ScrollQueries forwards;
+            .Queries,
+            .AllQueries{
+                display: block;
+            }
+        }
+
+        .Info > img{
+            margin-left: 0px;
+            margin-top: 50px;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+        }
+
+        /* 200 */
+        @media (max-width: 1000px){
+            .InputSearch{
+                width: 850px;
+                top: 79%;
+            }
+
+            .Info{
+                width: 500px;
+            }
+
+            .HeaderOne{
+                font-size: 16px;
+                color: White;
+            }
+
+            .HeaderTwo{
+                font-size: 16px;
+                color: rgb(225, 225, 225);
+                padding-left: 10px;
+                white-space: pre-line;
+            }
+
+            .Paragraph{
+                font-size: 14px;
+                color: rgb(195, 195, 195);
+                padding-left: 20px;
+            }
+        }
+
+
+        /* 125 */
+        @media (max-width: 1500px){
+            .ContainerQueries.Anim{
+                animation: none;
+                .Queries,
+                .AllQueries{
+                    display: none
+                }
+            }
+        }
+
+        /* 250 */
+        @media (max-width: 800px){
+            .InputSearch{
+                width: 700px;
+                top: 78%;
+            }
+        }
+        /* 300 */
+        @media (max-width: 700px){
+            .InputSearch{
+                width: 550px;
+                top: 77%;
+            }
+        }
+        /* 400 */
+        @media (max-width: 600px){
+            .InputSearch{
+                width: 425px;
+                height: 100px;
+                top: 75%;
+            }
+        }
+        /* 500 */
+        @media (max-width: 400px){
+            .InputSearch{
+                width: 300px;
+                height: 75px;
+                top: 75%;
+            }
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="ContainerQueries">
+        <h2 class="ScrollQueries">?</h2>
+        <h2 class="AllQueries">Доступные запросы:</h2>
+
+        <h1 class="Queries">Одно слово</h1>
+        <h1 class="Queries" style="height:220px;font-size:30px">Решение примера:<br>Формат(Пример):<br>Реши 1 ? 2 (int)<br>1 = Первое число<br>? = / - + * **<br>2 = Второе число</h1>
+        <h1 class="Queries" style="height:125px;font-size:34px">Поиск картин:<br>Формат(Пример):<br>Фото лес</h1>
+    </div>
+
+    {% if HeaderOneList is None and DigitOne is None and Images is None %}
+        <h2 class="TextStyleHello" style="display:block">Привет!</h2>
+    {% else %}
+        <h2 class="TextStyleHello" style="display:none">Привет!</h2>
+    {% endif %}
+    <div class="MessageField">
+        <h2 class="Message">{{search.Search}}</h2>
+    </div>
+
+    <div class="Loading">
+        <h2>Ищу информацию</h2>
+        <h2 class="PointOne">.</h2>
+        <h2 class="PointTwo">.</h2>
+        <h2 class="PointThree">.</h2>
+    </div>
+
+
+    {% if HeaderOne is not None and ParagraphListFour is not None %}
+    <div class="Info">
+        <h1 class="HeaderOne">{{HeaderOne}}</h1>
+
+        <h2 class="HeaderTwo">{{HeaderTwoListOne}}</h2>
+        <p class="Paragraph">{{ParagraphListOne}}</p>
+
+        <h2 class="HeaderTwo">{{HeaderTwoListTwo}}</h2>
+        <p class="Paragraph">{{ParagraphListTwo}}</p>
+
+        <h2 class="HeaderTwo">{{HeaderTwoListThree}}</h2>
+        <p class="Paragraph">{{ParagraphListThree}}</p>
+        <p class="Paragraph" style="height:60vh">{{ParagraphListFour}}</p>
+    </div>
+    {% endif %}
+
+
+    {% if ImgUrl is not None %}
+        <div class="Info">
+            <img src="{{ImgUrl}}">
+        </div>
+    {% endif %}
+
+    {% if DigitsAction == '**' and DigitTwo > 100 %}
+        <div class="Info">
+            <h1 class="HeaderOne">В ответе будет большое число!</h1>
+            <h2 class="HeaderTwo">Степень слишком большая.</h2>
+        </div>
+    {% elif DigitsAction in search.Search%}
+    <div class="Info">
+        <h1 class="HeaderOne">{{DigitOne}} {{DigitsAction}} {{DigitTwo}} = {{DigitsAnswer}}</h1>
+        <h2 class="HeaderTwo">Ответ: {{DigitsAnswer}}.</h2>
+    </div>
+    {% endif %}
+
+    <input type="text" name="Search" placeholder="Спросить:" class="InputSearch" />
+</form>
+<script>
+const InputSearch = document.querySelector('.InputSearch');
+const Loadings = document.querySelectorAll('.Loading, .PointOne, .PointTwo, .PointThree');
+const ScrollQueries = document.querySelector('.ScrollQueries');
+const ContainerQueries = document.querySelector('.ContainerQueries');
+const AllQueries = document.querySelector('.AllQueries');
+const Queries = document.querySelector('.Queries');
+let IsClicked = false;
+
+if (performance.navigation.type === 0) {
+        sessionStorage.setItem('isNavigation', 'true');
+    }
+
+if (!sessionStorage.getItem('isNavigation')) {
+        document.documentElement.classList.add('no-animation');
+    }
+sessionStorage.removeItem('isNavigation');
+
+
+InputSearch.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        Loadings[0].style.display = 'flex';
+        Loadings[1].classList.add('AnimOne');
+        Loadings[2].classList.add('AnimTwo');
+        Loadings[3].classList.add('AnimOne');
+    }
+});
+
+
+
+ScrollQueries.addEventListener('click', function() {
+    if (!IsClicked) {
+        ContainerQueries.classList.add('Anim');
+        IsClicked = true;
+    } else{
+        ContainerQueries.classList.remove('Anim');
+        IsClicked = false;
+    };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Django
+psycopg2-binary
+requests
+lxml
+bs4
+BeautifulSoup4
+selenium

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ошибка!</title>
+    <style>
+      body{
+        background: rgb(25, 25, 25)
+      }
+
+      .ContainerError{
+        width: 800px;
+        height: 600px;
+        background: rgb(35, 35, 35);
+        margin: auto;
+        margin-top: 50px;
+        border-radius: 25px;
+        border: 0;
+        text-align: center;
+        padding-top: 200px;
+        box-shadow: 0 0 15px 3px Snow;
+      }
+
+      .TextStyleError{
+        font-size: 50px;
+        color: rgb(175, 175, 175);
+        font-family: Impact;
+      }
+
+      .Back{
+        width: 300px;
+        height: 50px;
+        font-size: 30px;
+        color: rgb(25, 25, 25);
+        background: rgb(50, 50, 50);
+        font-family: Impact;
+        margin: auto;
+        margin-top: 100px;
+        line-height: 50px;
+        border-radius: 20px;
+        border: 0;
+      }
+
+      .Back:hover{
+        background: rgb(75, 75, 75);
+        transition: 0.3s ease;
+      }
+    </style>
+</head>
+<body>
+<div class="ContainerError">
+  <h2 class="TextStyleError" style="color:red">Ошибка!</h2>
+  <h2 class="TextStyleError" style="font-size:40px">Данные не найдены/Неккоректная команда.</h2>
+
+  <a href="http://localhost:8000/chat/" style="text-decoration:none"><h2 class="Back">Назад в чат</h2></a>
+</div>
+</body>
+</html>
