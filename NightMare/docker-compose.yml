@@ -1,0 +1,24 @@
+services:
+  django:
+    build: .
+    container_name: NightMare
+    command: python manage.py runserver 0.0.0.0:8000
+
+    volumes:
+      - .:/NightMare
+
+    ports:
+      - "8000:8000"
+
+
+  NightMareDB:
+    image: postgres
+    environment:
+      - POSTGRES_DB=NightMare
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    volumes:
+      - NightMareDBDATA:/var/lib/postgres
+
+volumes:
+  NightMareDBDATA: null

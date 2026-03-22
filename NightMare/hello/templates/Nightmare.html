@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Привет это NightMare!</title>
+    <style>
+        body{
+            background: rgb(35, 35, 35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .Night{
+            font-size: 12vh;
+            color: #1c2e92;
+            font-family: Arial Black;
+            text-shadow: 0 10px 0 Black;
+            transition: 0.3s ease;
+
+            &:hover{
+                text-shadow: 0 5px 0 SkyBlue;
+            }
+        }
+
+        span{
+            color: #3f51b5;
+            font-family: segoe script;
+        }
+
+        .ContainerLogo{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            margin-top: -400px;
+            display: flex;
+        }
+
+            .Month{
+                width: 150px;
+                height: 140px;
+                background-color: rgb(25, 25, 25);
+                border-radius: 60%;
+                position: relative;
+                overflow: hidden;
+                margin-left: 25px;
+                margin-top: 0;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: 130px;
+                    height: 130px;
+                    background-color: rgb(35, 35, 35);
+                    border-radius: 50%;
+                    top: 27px;
+                    left: 10px;
+                    box-shadow: 0 0 5px 2px #6274d8;
+                }
+            }
+
+            .ContainerLogo > h2{
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                background: #3a4cb0;
+                border-radius: 50%;
+                box-shadow: 0 0 5px 2px #0073d0;
+            }
+
+            .PointOne{
+                margin-top: 75px;
+                margin-left: 10px;
+            }
+            .PointTwo{
+                margin-top: 75px;
+                margin-left: 135px;
+            }
+
+        .Go{
+            position: absolute;
+            width: 300px;
+            height: 70px;
+            background: #6274d8;
+            font-family: cursive;
+            text-align: center;
+            color: Snow;
+            border-radius: 25px;
+            border: 5px solid #213397;
+            font-size: 40px;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.2s ease;
+            animation: ForGo 1.2s ease forwards;
+
+            &:hover{
+                border: 5px solid #26ccff;
+            }
+
+            &::after{
+                content: ' -->';
+                opacity: 0;
+                animation: ForArrow 1s ease forwards;
+            }
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        @keyframes ForGo{
+            0%{
+                transform: translate(-50%, 1%);
+                opacity: 0;
+                padding-left: 100px;
+            }
+            50%{
+                transform: translate(-50%, -100%);
+            }
+        }
+
+        @keyframes ForArrow{
+            50%{opacity: 0}
+            100%{opacity: 1}
+        }
+    </style>
+</head>
+<body>
+<h2 class="Night">Night<span>Mare</span></h2>
+
+<div class="ContainerLogo">
+    <h1 class="Month"></h1>
+    <h2 class="PointOne"></h2>
+    <h2 class="PointTwo"></h2>
+</div>
+
+<a href="http://localhost:8000/register/"><h1 class="Go">GO</h1></a>
+</body>
+</html>
