@@ -1,7 +1,0 @@
-Django
-psycopg2-binary
-openmeteo_requests
-pandas
-requests_cache
-retry
-retry_requests
