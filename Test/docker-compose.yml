@@ -1,0 +1,24 @@
+services:
+  django:
+    build: .
+    container_name: Test
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/Test
+
+    ports:
+      - "8000:8000"
+
+
+  TestDB:
+    image: postgres
+    environment:
+      - POSTGRES_DB=Test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    container_name: TestDB
+    volumes:
+      - TestDATA:/var/lib/postgresql
+
+volumes:
+  TestDATA: null

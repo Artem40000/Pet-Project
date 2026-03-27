@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+        html{height:100%}
+
+        body{
+            background-image: url("https://i.pinimg.com/originals/5d/f0/2a/5df02a047370812d9e49ddbfc1b87bbb.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .Container{
+            width: 800px;
+            height: 500px;
+            background: rgb(50, 50, 50, 0.3);
+            margin: auto;
+            margin-top: 100px;
+            border: 5px solid rgb(255, 255, 255, 0.3);
+            border-radius: 35px;
+            color: Snow;
+            display: flex;
+        }
+
+            .TextStyle{
+                color: Snow;
+                font-size: 40px;
+                font-family: cursive;
+            }
+
+            button{
+                position: absolute;
+                width: 300px;
+                height: 65px;
+                margin-top: 375px;
+                margin-left: 125px;
+                color: Snow;
+                font-size: 30px;
+                font-family: Arial Black;
+                border: 0;
+                border-radius: 20px;
+                background: #9c27b0;
+                transition: 0.3s ease;
+
+                &:hover{
+                    background: #bf4ad3;
+                }
+            }
+
+            .Login{
+                width: 250px;
+                height: 500px;
+                background: Crimson;
+                border-radius: 75px 30px 30px 75px;
+                margin-left: 160px;
+                margin-top: 0;
+                text-align: center;
+                transition: 0.3s ease;
+
+                &:hover{
+                    background: rgb(220, 20, 60, 0.7);
+                }
+            }
+
+            a{
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                margin-top: -33px;
+            }
+
+            input{
+                position: absolute;
+                width: 450px;
+                height: 65px;
+                border: 0;
+                border-radius: 20px;
+                color: Snow;
+                font-size: 30px;
+                font-family: cursive;
+                background: rgb(255, 255, 255, 0.2);
+                transition: 0.3s ease;
+
+                &:focus{outline:none}
+                &:hover{background: rgb(255, 255, 255, 0.3)}
+                &::placeholder{
+                    color: rgb(200, 200, 200);
+                    font-family: Arial Black;
+                }
+            }
+
+            .InputOne{
+                margin-top: 150px;
+                margin-left: 55px;
+            }
+            .InputTwo{
+                margin-top: 250px;
+                margin-left: 55px;
+            }
+    </style>
+</head>
+<body>
+<form method="POST" action="http://localhost:8000/register/">
+    {% csrf_token %}
+    <div class="Container">
+        <h2 class="TextStyle" style="margin-left:160px">Registration</h2>
+
+        <input type="text" name="Name" placeholder="Name:" class="InputOne" maxlength="24" minlength="4">
+        <input type="password" name="Password" placeholder="Password:" class="InputTwo" maxlength="40" minlength="6">
+
+        <button>CONFIRM</button>
+
+        <div class="Login"><a href="http://localhost:8000/login/"><h2 class="TextStyle">Login</h2></a></div>
+    </div>
+</form>
+</body>
+</html>

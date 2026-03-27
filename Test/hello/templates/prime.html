@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная <{{person.Name}}></title>
+    <style>
+        body{
+            background: rgb(50, 50, 50);
+        }
+
+        .ContainerLeft{
+            position: fixed;
+            width: 250px;
+            height: 100%;
+            background: rgb(25, 25, 25);
+            margin-top: -8px;
+            margin-left: -8px;
+            text-align: center;
+            color: Snow;
+            border-right: 5px solid;
+            border-image: linear-gradient(to bottom, #441794, #c60040, #6274d8) 1;
+        }
+
+            .TextStyleActions{
+                font-size: 34px;
+                font-family: cursive;
+                border-bottom: 5px solid #441794;
+            }
+
+            .ContainerLeft > h1{
+                width: 200px;
+                height: 75px;
+                border-radius: 5px;
+                border: 7px solid #1c2e92;
+                margin-left: 18px;
+                margin-top: 55px;
+                font-size: 26px;
+                color: Snow;
+                font-family: Arial Black;
+                line-height: 70px;
+                transition: 0.3s ease;
+                cursor: pointer;
+
+                &:hover{border: 7px solid #6274d8}
+            }
+
+
+
+
+
+        .ContainerAccount{
+            width: 800px;
+            height: 600px;
+            margin-left: 250px;
+            margin: auto;
+            text-align: center;
+            background: rgb(70, 130, 180, 0.5);
+            border-radius: 25% 25% 15px 15px;
+            display: block;
+        }
+
+            .ContainerAccount > input{
+                width: 600px;
+                height: 65px;
+                margin: auto;
+                margin-top: 40px;
+                border-radius: 10px;
+                border: 0;
+                color: Black;
+                font-size: 30px;
+                font-family: cursive;
+                transition: 0.3s ease;
+                outline: none;
+
+                &:focus{box-shadow: 0 0 15px 0 White;transition: 0}
+                &:hover{background:rgb(255,255,255,0.6)}
+            }
+
+            a{text-decoration: none;display: inline-block}
+
+            .ContainerAccount > .Edit,
+            .ContainerAccount > a > h2{
+                position: absolute;
+                width: 250px;
+                height: 65px;
+                color: Snow;
+                font-size: 40px;
+                font-family: cursive;
+                border-radius: 20px;
+                transition: 0.3s ease;
+                cursor: pointer;
+                border: 0;
+            }
+
+            .Edit{
+                position: absolute;
+                background: #298c2d;
+                margin-top: 203px;
+                margin-left: -650px;
+
+                &:hover{background:#4caf50}
+            }
+
+            .Delete{
+                position: absolute;
+                background: Red;
+                margin-top: 120px;
+                margin-left: -200px;
+
+                &:hover{background:Crimson}
+            }
+
+
+
+
+
+        .ContainerCreateTasks{
+            width: 650px;
+            height: 550px;
+            margin-left: 250px;
+            margin: auto;
+            text-align: center;
+            background: rgb(25, 25, 65);
+            border-radius: 35px;
+            display: none;
+        }
+
+            .ContainerCreateTasks > input{
+                width: 600px;
+                height: 65px;
+                margin: auto;
+                margin-top: 40px;
+                border-radius: 10px;
+                border: 0;
+                color: Snow;
+                font-size: 30px;
+                font-family: cursive;
+                transition: 0.3s ease;
+                background: rgb(50, 50, 100);
+
+                &:focus{outline:none}
+                &:hover{background:rgb(255,255,255, 0.3)}
+                &::placeholder{color:SkyBlue}
+            }
+
+            .Create{
+                width: 250px;
+                height: 65px;
+                border-radius: 25px;
+                border: 0;
+                font-size: 26px;
+                color: Snow;
+                font-family: Arial Black;
+                transition: 0.3s ease;
+                cursor: pointer;
+                margin: auto;
+                margin-top: 55px;
+                background: rgb(25, 125, 125);
+            }
+
+            .InputTwo{margin-top:-100px}
+
+
+
+
+
+        .ContainerTasks{
+            width: 1100px;
+            height: 100%;
+            margin: auto;
+            margin-top: -0px;
+            text-align: left;
+            background: #0f1923;
+            border: 5px solid #1f3040;
+            border-radius: 35px 35px 0 0;
+            display: none;
+        }
+
+            .TextStyleTasks{
+                font-size: 40px;
+                color: #5eead4;
+                font-family: cursive;
+                border-bottom: 4px solid Indigo;
+                padding-left: 10px;
+            }
+
+            .CreateTask{
+                position: absolute;
+                width: 150px;
+                height: 55px;
+                background: #14b8a6;
+                color: #fff;
+                margin-left: 925px;
+                margin-top: -100px;
+                border-radius: 15px;
+                font-size: 30px;
+                font-family: Arial Black;
+                text-align: center;
+                cursor: pointer;
+                line-height: 50px;
+            }
+
+            .DeleteTask{
+                position: absolute;
+                width: 150px;
+                height: 55px;
+                background: red;
+                color: #fff;
+                margin-left: 925px;
+                margin-top: -105px;
+                border-radius: 15px;
+                font-size: 30px;
+                font-family: Arial Black;
+                text-align: center;
+                cursor: pointer;
+                line-height: 50px;
+            }
+
+            .ContainerTasks > h2{
+                font-size: 30px;
+                color: #7fb3c8;
+                font-family: Arial Black;
+                padding-left: 15px;
+            }
+
+            .TaskTime{
+                border-bottom: 5px solid;border-image: linear-gradient(to right, #1c2e92, #6274d8, #23dff8) 1}
+            span{color: Snow; font-family: cursive}
+
+
+
+
+
+        .ContainerConversionLong,
+        .ContainerConversionWeight{
+            width: 800px;
+            height: 500px;
+            background: rgb(0, 0, 255, 0.2);
+            margin: auto;
+            margin-top: 0px;
+            display: none;
+            border-radius: 15px 15px 25% 25%;
+            border: 2px solid transparent;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.6),
+                0 0 30px rgba(99, 102, 241, 0.4),
+                inset 0 0 15px rgba(168, 85, 247, 0.2);
+        }
+
+            .ContainerConversionLong > h2,
+            .ContainerConversionWeight > h2{
+                width: 300px;
+                height: 75px;
+                background: #6274d8;
+                color: Black;
+                text-align: center;
+                font-size: 30px;
+                font-family: Arial Black;
+                line-height: 70px;
+                box-shadow: 0 0 5px 0 Black;
+                cursor: pointer;
+                transition: 0.3s ease;
+                margin-top: 10px;
+                border-radius: 25px;
+
+                &:hover{background:rgb(98, 116, 216, 0.6)}
+            }
+
+            .ActionOne,
+            .ActionTwo{
+                position: absolute;
+                font-size: 40px;
+                color: Snow;
+                font-family: Arial Black;
+                margin-top: 125px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-shadow: 0 5px 5px Black;
+            }
+
+            .InputThree,
+            .InputFour{
+                position: absolute;
+                width: 650px;
+                height: 65px;
+                border-radius: 25px;
+                border: 0;
+                margin-left: 75px;
+                margin-top: 200px;
+                font-size: 30px;
+                font-family: cursive;
+                transition: 0.3s ease;
+                background: #1e2a4a;
+                border: 1.5px solid rgba(99, 116, 216, 0.3);
+                color: #c8d4f0;
+                outline: none;
+
+                &:focus{border-color: rgba(99, 116, 216, 0.7);background: #243058}
+                &::placeholder{color: rgba(200, 212, 240, 0.4)}
+            }
+
+            .ResultInputThree,
+            .ResultInputFour{
+                position: absolute;
+                width: 650px;
+                height: 65px;
+                border-radius: 25px;
+                border: 0;
+                margin-left: 75px;
+                margin-top: 325px;
+                line-height: 65px;
+                padding-left: 5px;
+                font-size: 30px;
+                font-family: cursive;
+                background: #1e2a4a;
+                border: 1.5px solid rgba(99, 116, 216, 0.3);
+                color: Snow;
+            }
+
+
+            .ListLongOne,
+            .ListWeightOne{
+                position: absolute;
+                color: Snow;
+                font-size: 20px;
+                font-family: Arial Black;
+                margin-top: 265px;
+                margin-left: 85px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover{color: rgb(200, 200, 200)}
+            }
+
+                .ElementsLongOne,
+                .ElementsLongTwo,
+                .ElementsWeightOne,
+                .ElementsWeightTwo{
+                    position: absolute;
+                    width: 200px;
+                    height: 225px;
+                    background: rgb(75, 75, 75);
+                    border-radius: 10px;
+                    border: 0;
+                    margin-left: -125px;
+                    margin-top: 100px;
+                    display: none;
+                }
+
+                    .ElementsLongOne > h2,
+                    .ElementsLongTwo > h2,
+                    .ElementsWeightOne > h2,
+                    .ElementsWeightTwo > h2{
+                        width: 200px;
+                        height: 50px;
+                        text-align: center;
+                        font-size: 20px;
+                        font-family: Arial Black;
+                        line-height: 50px;
+                        color: Snow;
+                        border-radius: 5px;
+                        cursor: pointer;
+
+                        &:hover{box-shadow: inset 5px 0 0 0 Gray;background:rgb(95, 95, 95)}
+                    }
+
+            .ListLongTwo,
+            .ListWeightTwo{
+                position: absolute;
+                color: Snow;
+                font-size: 20px;
+                font-family: Arial Black;
+                margin-top: 390px;
+                margin-left: 85px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover{color: rgb(200, 200, 200)}
+            }
+
+
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+<div class="ContainerLeft">
+    <h2 class="TextStyleActions">Actions</h2>
+
+    <h1 class="Account">Account</h1>
+    <h1 class="Tasks">Tasks</h1>
+    <h1 class="Conversion">Conversion</h1>
+</div>
+
+<div class="ContainerTasks">
+    <h1 class="TextStyleTasks">Ваши задачи:</h1>
+    <h1 class="CreateTask">Create</h1>
+
+    {% if tasks is not None %}
+        {% for task in tasks %}
+            <h2>Название: <span>{{task.TaskName}}</span></h2>
+            <h2>Описание: <span>{{task.Title}}</span></h2>
+            <h2 class="TaskTime">Время: <span>{{task.Time}}</span></h2>
+
+            <input type="hidden" name="Name" value="{{person.Name}}">
+            <a href="http://localhost:8000/deleteTask/{{task.id}}_{{person.Name}}"><h2 class="DeleteTask">Удалить</h2></a>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+<div class="ContainerConversionLong">
+    <h2 class="LongOne" style="margin-left: 50px">Длина</h2>
+    <h2 class="WeightOne" style="margin-left: 100px">Вес</h2>
+
+    <h1 class="ActionOne">Длина</h1>
+
+    <h1 class="ListLongOne">Сантиметры ⮟</h1>
+    <div class="ElementsLongOne">
+        <h2 class="OneSa">Сантиметры</h2>
+        <h2 class="OneMe">Метры</h2>
+        <h2 class="OneKi">Километры</h2>
+    </div>
+
+    <h1 class="ListLongTwo">Сантиметры ⮟</h1>
+    <div class="ElementsLongTwo" style="margin-top: 225px">
+        <h2 class="TwoSa">Сантиметры</h2>
+        <h2 class="TwoMe">Метры</h2>
+        <h2 class="TwoKi">Километры</h2>
+    </div>
+
+    <input type="text" name="One" placeholder="Ввод:" class="InputThree" maxlength="20">
+    <h1 class="ResultInputThree">0</h1>
+</div>
+
+
+
+<div class="ContainerConversionWeight" style="display:none">
+    <h2 class="LongTwo" style="margin-left: 50px">Длина</h2>
+    <h2 class="WeightTwo" style="margin-left: 100px">Вес</h2>
+
+    <h1 class="ActionTwo">Вес</h1>
+
+    <h1 class="ListWeightOne">Граммы ⮟</h1>
+    <div class="ElementsWeightOne">
+        <h2 class="OneGr">Граммы</h2>
+        <h2 class="OneKil">Килограммы</h2>
+        <h2 class="OneTon">Тонны</h2>
+    </div>
+
+    <h1 class="ListWeightTwo">Граммы ⮟</h1>
+    <div class="ElementsWeightTwo" style="margin-top: 225px">
+        <h2 class="TwoGr">Граммы</h2>
+        <h2 class="TwoKil">Килограммы</h2>
+        <h2 class="TwoTon">Тонны</h2>
+    </div>
+
+    <input type="text" name="One" placeholder="Ввод:" class="InputFour" maxlength="20">
+    <h1 class="ResultInputFour">0</h1>
+</div>
+</form>
+
+
+<form method="POST" action="{% url 'Edit' Name=person.Name %}">
+    {% csrf_token %}
+<div class="ContainerAccount">
+    <input type="text" name="Name" placeholder="Name:" style="margin-top:150px" value="{{person.Name}}" maxlength="24" minlength="4">
+    <input type="password" name="Password" placeholder="Password:" value="{{person.Password}}" maxlength="40" minlength="6">
+
+    <button class="Edit">EDIT</button>
+    <a href="http://localhost:8000/delete/{{person.Name}}"><h2 class="Delete">DELETE</h2></a>
+</div>
+</form>
+
+<form method="POST" action="{% url 'AddTask' %}">
+    {% csrf_token %}
+    <input type="hidden" name="Name" value="{{person.Name}}">
+    <div class="ContainerCreateTasks">
+        <input type="text" name="TaskName" placeholder="Name:" class="InputTwo" maxlength="20" minlength="2">
+        <input type="text" name="Title" placeholder="Describe:" maxlength="40" minlength="4">
+        <input type="time" name="Time">
+
+        <button class="Create">CREATE</button>
+    </div>
+</form>
+<script>
+const Account = document.querySelector('.Account')
+const Tasks = document.querySelector('.Tasks')
+const Conversion = document.querySelector('.Conversion')
+const ContainerAccount = document.querySelector('.ContainerAccount')
+const ContainerTasks = document.querySelector('.ContainerTasks')
+const ContainerCreateTasks = document.querySelector('.ContainerCreateTasks')
+const ContainerConversionLong = document.querySelector('.ContainerConversionLong')
+const ContainerConversionWeight = document.querySelector('.ContainerConversionWeight')
+const CreateTask = document.querySelector('.CreateTask')
+const Longs = document.querySelectorAll('.LongOne, .LongTwo')
+const Weights = document.querySelectorAll('.WeightOne, .WeightTwo')
+const InputThree = document.querySelector('.InputThree')
+const ResultInputThree = document.querySelector('.ResultInputThree')
+const ListLongOne = document.querySelector('.ListLongOne')
+const ListLongTwo = document.querySelector('.ListLongTwo')
+const ElementsLongOne = document.querySelectorAll('.ElementsLongOne, .OneSa, .OneMe, .OneKi')
+const ElementsLongTwo = document.querySelectorAll('.ElementsLongTwo, .TwoSa, .TwoMe, .TwoKi')
+const InputFour = document.querySelector('.InputFour')
+const ResultInputFour = document.querySelector('.ResultInputFour')
+const ListWeightOne = document.querySelector('.ListWeightOne')
+const ListWeightTwo = document.querySelector('.ListWeightTwo')
+const ElementsWeightOne = document.querySelectorAll('.ElementsWeightOne, .OneGr, .OneKil, .OneTon')
+const ElementsWeightTwo = document.querySelectorAll('.ElementsWeightTwo, .TwoGr, .TwoKil, .TwoTon')
+const Saved = localStorage.getItem('SavedContainer');
+
+let isClickedAccount = false;
+let isClickedTasks = false;
+let isClickedConversion = false;
+let isClickedCreateTasks = false;
+let isClickedLong = false;
+let isClickedWeight = false;
+let isClickedListLongOne = false;
+let isClickedListLongTwo = false;
+let isClickedListWeightOne = false;
+let isClickedListWeightTwo = false;
+
+
+
+
+
+Account.addEventListener('click', function() {
+    if (!isClickedAccount) {
+        ContainerAccount.style.display = 'block';
+        ContainerTasks.style.display = 'none';
+        ContainerConversionLong.style.display = 'none';
+        ContainerConversionWeight.style.display = 'none';
+        ContainerCreateTasks.style.display = 'none';
+        localStorage.setItem('SavedContainer', 'account');
+    };
+});
+
+Tasks.addEventListener('click', function() {
+    if (!isClickedTasks) {
+        ContainerTasks.style.display = 'block';
+        ContainerAccount.style.display = 'none';
+        ContainerConversionLong.style.display = 'none';
+        ContainerConversionWeight.style.display = 'none';
+        ContainerCreateTasks.style.display = 'none';
+        localStorage.setItem('SavedContainer', 'tasks');
+    };
+});
+
+Conversion.addEventListener('click', function() {
+    if (!isClickedConversion) {
+        ContainerAccount.style.display = 'none';
+        ContainerTasks.style.display = 'none';
+        ContainerCreateTasks.style.display = 'none';
+        ContainerConversionLong.style.display = 'flex';
+        ContainerConversionWeight.style.display = 'none';
+        localStorage.setItem('SavedContainer', 'conversion');
+    }
+});
+
+CreateTask.addEventListener('click', function() {
+    if (!isClickedCreateTasks) {
+        ContainerAccount.style.display = 'none';
+        ContainerTasks.style.display = 'none';
+        ContainerCreateTasks.style.display = 'block';
+        ContainerConversionLong.style.display = 'none';
+    }
+});
+
+if (Saved === 'account') {
+    ContainerAccount.style.display = 'block';
+    ContainerTasks.style.display = 'none';
+    ContainerConversionLong.style.display = 'none';
+    ContainerConversionWeight.style.display = 'none';
+    ContainerCreateTasks.style.display = 'none';
+};
+if (Saved === 'tasks') {
+    ContainerTasks.style.display = 'block';
+    ContainerAccount.style.display = 'none';
+    ContainerConversionLong.style.display = 'none';
+    ContainerConversionWeight.style.display = 'none';
+    ContainerCreateTasks.style.display = 'none';
+    localStorage.setItem('SavedContainer', 'tasks');
+};
+if (Saved === 'conversion') {
+    ContainerAccount.style.display = 'none';
+    ContainerTasks.style.display = 'none';
+    ContainerCreateTasks.style.display = 'none';
+    ContainerConversionLong.style.display = 'flex';
+    ContainerConversionWeight.style.display = 'none';
+};
+
+
+
+Longs[0].addEventListener('click', function() {
+    if (!isClickedLong) {
+        ContainerConversionLong.style.display = 'flex';
+        ContainerConversionWeight.style.display = 'none';
+    }
+});
+Weights[0].addEventListener('click', function() {
+    if (!isClickedWeight) {
+        ContainerConversionLong.style.display = 'none';
+        ContainerConversionWeight.style.display = 'flex';
+    }
+});
+
+Longs[1].addEventListener('click', function() {
+    if (!isClickedLong) {
+        ContainerConversionLong.style.display = 'flex';
+        ContainerConversionWeight.style.display = 'none';
+    }
+});
+Weights[1].addEventListener('click', function() {
+    if (!isClickedWeight) {
+        ContainerConversionLong.style.display = 'none';
+        ContainerConversionWeight.style.display = 'flex';
+    }
+});
+
+
+
+
+
+ListLongOne.addEventListener('click', function() {
+    if (!isClickedListLongOne) {
+        ElementsLongOne[0].style.display = 'block';
+        ElementsLongTwo[0].style.display = 'none';
+        isClickedListLongOne = true;
+    } else{
+        ElementsLongOne[0].style.display = 'none';
+        isClickedListLongOne = false;
+    }
+});
+ListLongTwo.addEventListener('click', function() {
+    if (!isClickedListLongTwo) {
+        ElementsLongOne[0].style.display = 'none';
+        ElementsLongTwo[0].style.display = 'block';
+        isClickedListLongTwo = true;
+    } else{
+        ElementsLongTwo[0].style.display = 'none';
+        isClickedListLongTwo = false;
+    }
+});
+
+ElementsLongOne[1].addEventListener('click', function() {
+    ListLongOne.textContent = 'Сантиметры ⮟'
+});
+ElementsLongOne[2].addEventListener('click', function() {
+    ListLongOne.textContent = 'Метры ⮟'
+});
+ElementsLongOne[3].addEventListener('click', function() {
+    ListLongOne.textContent = 'Километры ⮟'
+});
+
+
+ElementsLongTwo[1].addEventListener('click', function() {
+    ListLongTwo.textContent = 'Сантиметры ⮟'
+});
+ElementsLongTwo[2].addEventListener('click', function() {
+    ListLongTwo.textContent = 'Метры ⮟'
+});
+ElementsLongTwo[3].addEventListener('click', function() {
+    ListLongTwo.textContent = 'Километры ⮟'
+});
+
+
+
+ListWeightOne.addEventListener('click', function() {
+    if (!isClickedListWeightOne) {
+        ElementsWeightOne[0].style.display = 'block';
+        ElementsWeightTwo[0].style.display = 'none';
+        isClickedListWeightOne = true;
+    } else{
+        ElementsWeightOne[0].style.display = 'none';
+        isClickedListWeightOne = false;
+    }
+});
+ListWeightTwo.addEventListener('click', function() {
+    if (!isClickedListWeightTwo) {
+        ElementsWeightOne[0].style.display = 'none';
+        ElementsWeightTwo[0].style.display = 'block';
+        isClickedListWeightTwo = true;
+    } else{
+        ElementsWeightTwo[0].style.display = 'none';
+        isClickedListWeightTwo = false;
+    }
+});
+
+ElementsWeightOne[1].addEventListener('click', function() {
+    ListWeightOne.textContent = 'Граммы ⮟'
+});
+ElementsWeightOne[2].addEventListener('click', function() {
+    ListWeightOne.textContent = 'Килограммы ⮟'
+});
+ElementsWeightOne[3].addEventListener('click', function() {
+    ListWeightOne.textContent = 'Тонны ⮟'
+});
+
+ElementsWeightTwo[1].addEventListener('click', function() {
+    ListWeightTwo.textContent = 'Граммы ⮟'
+});
+ElementsWeightTwo[2].addEventListener('click', function() {
+    ListWeightTwo.textContent = 'Килограммы ⮟'
+});
+ElementsWeightTwo[3].addEventListener('click', function() {
+    ListWeightTwo.textContent = 'Тонны ⮟'
+});
+
+
+
+
+
+InputThree.addEventListener('input', function() {
+    if (ListLongOne.textContent == 'Сантиметры ⮟' & ListLongTwo.textContent == 'Сантиметры ⮟') {
+        ResultInputThree.textContent = InputThree.value;
+    }
+    if (ListLongOne.textContent == 'Сантиметры ⮟' & ListLongTwo.textContent == 'Метры ⮟') {
+        ResultInputThree.textContent = InputThree.value / 100;
+    }
+    if (ListLongOne.textContent == 'Сантиметры ⮟' & ListLongTwo.textContent == 'Километры ⮟') {
+        ResultInputThree.textContent = InputThree.value / 100000;
+    }
+
+
+
+    if (ListLongOne.textContent == 'Метры ⮟' & ListLongTwo.textContent == 'Сантиметры ⮟') {
+        ResultInputThree.textContent = InputThree.value * 100;
+    }
+    if (ListLongOne.textContent == 'Метры ⮟' & ListLongTwo.textContent == 'Метры ⮟') {
+        ResultInputThree.textContent = InputThree.value;
+    }
+    if (ListLongOne.textContent == 'Метры ⮟' & ListLongTwo.textContent == 'Километры ⮟') {
+        ResultInputThree.textContent = InputThree.value / 1000;
+    }
+
+
+
+    if (ListLongOne.textContent == 'Километры ⮟' & ListLongTwo.textContent == 'Сантиметры ⮟') {
+        ResultInputThree.textContent = InputThree.value * 100000;
+    }
+    if (ListLongOne.textContent == 'Километры ⮟' & ListLongTwo.textContent == 'Метры ⮟') {
+        ResultInputThree.textContent = InputThree.value * 1000;
+    }
+    if (ListLongOne.textContent == 'Километры ⮟' & ListLongTwo.textContent == 'Километры ⮟') {
+        ResultInputThree.textContent = InputThree.value;
+    }
+});
+
+
+
+
+
+InputFour.addEventListener('input', function() {
+    if (ListWeightOne.textContent == 'Граммы ⮟' & ListWeightTwo.textContent == 'Граммы ⮟') {
+        ResultInputFour.textContent = InputFour.value;
+    }
+    if (ListWeightOne.textContent == 'Граммы ⮟' & ListWeightTwo.textContent == 'Килограммы ⮟') {
+        ResultInputFour.textContent = InputFour.value / 1000;
+    }
+    if (ListWeightOne.textContent == 'Граммы ⮟' & ListWeightTwo.textContent == 'Тонны ⮟') {
+        ResultInputFour.textContent = InputFour.value / 1000000;
+    }
+
+
+
+    if (ListWeightOne.textContent == 'Килограммы ⮟' & ListWeightTwo.textContent == 'Граммы ⮟') {
+        ResultInputFour.textContent = InputFour.value * 1000;
+    }
+    if (ListWeightOne.textContent == 'Килограммы ⮟' & ListWeightTwo.textContent == 'Килограммы ⮟') {
+        ResultInputFour.textContent = InputFour.value;
+    }
+    if (ListWeightOne.textContent == 'Килограммы ⮟' & ListWeightTwo.textContent == 'Тонны ⮟') {
+        ResultInputFour.textContent = InputFour.value / 1000;
+    }
+
+
+
+    if (ListWeightOne.textContent == 'Тонны ⮟' & ListWeightTwo.textContent == 'Граммы ⮟') {
+        ResultInputFour.textContent = InputFour.value * 1000000;
+    }
+    if (ListWeightOne.textContent == 'Тонны ⮟' & ListWeightTwo.textContent == 'Килограммы ⮟') {
+        ResultInputFour.textContent = InputFour.value * 1000;
+    }
+    if (ListWeightOne.textContent == 'Тонны ⮟' & ListWeightTwo.textContent == 'Тонны ⮟') {
+        ResultInputFour.textContent = InputFour.value;
+    }
+});
+</script>
+</body>
+</html>
