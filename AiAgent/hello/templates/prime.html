@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <meta charset="UTF-8">
+    <title>Ai-Agent</title>
+    <style>
+        body{background: rgb(25, 25, 25)}
+
+        .Container{
+            margin: auto;
+            width: 1000px;
+            height: auto;
+            text-align: left;
+            font-family: Arial Black;
+            color: Snow;
+            word-break: break-word;
+        }
+
+        textarea{
+            position: fixed;
+            left: 50%;
+            width: 700px;
+            height: 78px;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 0;
+            background: rgb(50, 50, 50);
+            outline: none;
+            font-size: 20px;
+            color: Snow;
+            font-family: Arial Black;
+            padding-top: 20px;
+            padding-right: 70px;
+            padding-left: 20px;
+            max-height: 200px;
+            bottom: -50px;
+            resize: none;
+
+            &::placeholder{
+                font-size: 20px;
+                color: Gray;
+                font-family: Arial Black;
+            }
+
+            &::-webkit-scrollbar {width: 6px}
+            &::-webkit-scrollbar-track {background: transparent}
+            &::-webkit-scrollbar-thumb {background: rgba(255, 255, 255, 0.2); border-radius: 10px}
+            &::-webkit-scrollbar-thumb:hover {background: rgba(255, 255, 255, 0.35)}
+        }
+
+
+
+        .HeaderOne{font-size: 16px; margin-top: 50px}
+
+
+        @keyframes ForPlane{
+            0%{rotate: 0deg; color: #1c2e92}
+
+            5%{margin-left: 10px; rotate: 0deg; color: #213397}
+            10%{margin-left: 20px; rotate: 0deg; color: #26389c}
+            15%{margin-left: 30px; rotate: 0deg; color: #2b3da1}
+            20%{margin-left: 40px; rotate: 0deg; color: #3042a6}
+            25%{margin-left: 50px; rotate: 0deg; color: #3547ab}
+            30%{margin-left: 60px; rotate: 0deg; color: #3a4cb0}
+            35%{margin-left: 70px; rotate: 0deg; color: #3f51b5}
+            40%{margin-left: 80px; rotate: 0deg; color: #4456ba}
+            45%{margin-left: 90px; rotate: 0deg; color: #495bbf}
+            50%{margin-left: 100px; rotate: 0deg; color: #4e60c4}
+
+            55%{rotate: -30deg; margin-left: 100px; color: #495bbf}
+            60%{rotate: -60deg; margin-left: 100px; color: #4456ba}
+            65%{rotate: -90deg; margin-left: 100px; color: #3f51b5}
+            70%{rotate: -120deg; margin-left: 100px; color: #3a4cb0}
+            75%{rotate: -150deg; margin-left: 100px; color: #3547ab}
+            80%{rotate: -180deg; margin-left: 75px; color: #3042a6}
+            85%{rotate: -180deg; margin-left: 50px; color: #2b3da1}
+            90%{rotate: -180deg; margin-left: 25px; color: #26389c}
+            95%{rotate: -180deg; margin-left: 0px; color: #213397}
+
+            100%{rotate: 0deg; color: #1c2e92}
+        }
+
+        .Plane{
+            font-size: 40px;
+            color: #1c2e92;
+            display: none;
+        }
+
+        .AnimPlane.Plane{animation: ForPlane 1.5s infinite}
+
+        .Message{
+            margin-left: auto;
+            max-width: 500px;
+            width: auto;
+            height: auto;
+            text-align: left;
+            font-size: 20px;
+            background: rgb(50, 50, 50);
+            border-radius: 15px;
+            padding: 10px;
+            overflow-wrap: break-word;
+            display: none;
+        }
+
+
+
+        @keyframes ForThink {
+            0%{background-position: 0%}
+            100%{background-position: 50%}
+        }
+
+        .Think{
+            font-family: Cursive;
+            background: linear-gradient(to right, #673ab7, Snow);
+            background-size: 15%;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 10px Indigo;
+            margin-top: -5px;
+            display: none;
+            animation: ForThink 5s linear infinite;
+        }
+
+        @keyframes ForSpanOne{
+            0%, 80%, 100% {transform: translateY(0); opacity: 0.5}
+            40% {transform: translateY(-8px); opacity: 1}
+        }
+
+        span{color: #8a5dda; display: inline-block}
+        .AnimSpanOne.SpanOne{animation: ForSpanOne 0.6s ease-in-out}
+        .AnimSpanTwo.SpanTwo{animation: ForSpanOne 0.6s ease-in-out 0.3s}
+        .AnimSpanThree.SpanThree{animation: ForSpanOne 0.6s ease-in-out 0.6s}
+
+
+        .CopyHeader,
+        .CopyMessage{
+            font-size: 24px;
+            color: rgb(175, 175, 175);
+            transition: 0.3s ease;
+            cursor: pointer;
+            display: none;
+
+            &:hover{color: rgb(235, 235, 235)}
+        }
+        .CopyMessage{margin-left: 450px; display: block}
+        .CopyHeader:hover + .ForCopyHeader{display: block}
+
+
+        .ForCopyHeader{
+            width: 140px;
+            height: 20px;
+            font-size: 14px;
+            color: Snow;
+            background: rgb(50, 50, 50);
+            text-align: center;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-left: -55px;
+            margin-top: 0;
+            padding: 2px;
+            display: none;
+        }
+
+        @keyframes SuccessCopy{
+            0%{color: rgb(175, 175, 175)}
+            50%{color: #389b3c}
+            100%{color: rgb(175, 175, 175)}
+        }
+
+        .CopyHeader.AnimForCopy,
+        .CopyMessage.AnimForCopy{animation: SuccessCopy 1s linear forwards}
+
+
+
+        .SendButton{
+            position: absolute;
+            right: -35px;
+            bottom: -65px;
+            width: 50px;
+            height: 50px;
+            background: Snow;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            line-height: 60px;
+            transition: 0.2s ease;
+            display: none;
+
+            &:hover{box-shadow: 0 0 10px 0 Snow}
+        }
+
+        @keyframes SendButton{
+            0%{background: Snow}
+            50%{background: #389b3c}
+            100%{background: Snow}
+        }
+
+        .SendButton.AnimSendButton{animation: SendButton 1s linear forwards}
+
+        .ContainerArea{
+            position: fixed;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="ContainerArea">
+        <textarea placeholder="Поиск:" maxlength="300" name="query"></textarea>
+        <h2 class="SendButton"><i class="fi fi-sr-arrow-small-up"></i></h2>
+    </div>
+
+    <div class="Container">
+        <div class="Message">
+            <i class="fi fi-sr-copy CopyMessage"></i>
+        </div>
+
+
+        <i class="fi fi-ss-paper-plane-top Plane"></i>
+        <h2 class="Think">Думаю<span class="SpanOne">.</span><span class="SpanTwo">.</span><span class="SpanThree">.</span></h2>
+
+
+        <h2 class="HeaderOne">{{answer}}</h2>
+        <i class="fi fi-sr-copy CopyHeader"></i>
+        <h2 class="ForCopyHeader">Скопировать</h2>
+    </div>
+</form>
+<script>
+const textarea = document.querySelector('textarea')
+const Message = document.querySelector('.Message')
+const Plane = document.querySelector('.Plane')
+const HeaderOne = document.querySelector('.HeaderOne')
+const Think = document.querySelector('.Think')
+const SpanOne = document.querySelector('.SpanOne')
+const SpanTwo = document.querySelector('.SpanTwo')
+const SpanThree = document.querySelector('.SpanThree')
+const CopyHeader = document.querySelector('.CopyHeader')
+const icon = document.createElement('i')
+const SendButton = document.querySelector('.SendButton')
+
+textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+});
+
+Message.addEventListener('input', () => {
+    Message.style.height = 'auto';
+    Message.style.height = Message.Height + 'px';
+});
+
+function SendFormAndElements(event) {
+    if (textarea.value.trim() === "") {
+        event.preventDefault();
+        return;
+    }
+
+    localStorage.setItem("text", textarea.value);
+    Message.style.display = 'block';
+    event.preventDefault();
+    document.querySelector('form').submit();
+    Message.textContent = textarea.value;
+    textarea.value = "";
+    Plane.style.display = 'inline-block';
+    Plane.classList.add('AnimPlane')
+    SpanOne.classList.add('AnimSpanOne')
+    SpanTwo.classList.add('AnimSpanTwo')
+    SpanThree.classList.add('AnimSpanThree')
+    Think.style.display = 'block';
+    CopyHeader.style.display = 'none';
+    HeaderOne.textContent = '';
+};
+
+textarea.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        SendFormAndElements(event);
+    }
+});
+
+textarea.addEventListener('input', function() {
+    if (textarea.value.trim() !== "") {
+        SendButton.style.display = 'block';
+    } else {
+        SendButton.style.display = 'none';
+    };
+});
+
+if (HeaderOne.textContent != ''){CopyHeader.style.display = 'inline-block'}
+
+
+
+if (Message.textContent.trim() !== "" || HeaderOne.textContent.trim() !== "") {
+    Message.style.display = "block";
+    Message.textContent = localStorage.getItem("text") || "";
+    icon.className = 'fi fi-sr-copy CopyMessage';
+    Message.appendChild(icon);
+    icon.style.display = 'inline-block';
+}
+
+CopyHeader.addEventListener('click', function() {
+    CopyHeader.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(HeaderOne.textContent);
+    setTimeout(() => {CopyHeader.classList.remove('AnimForCopy')}, 1500);
+});
+
+icon.addEventListener('click', function() {
+    icon.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(Message.textContent);
+    setTimeout(() => {icon.classList.remove('AnimForCopy')}, 1500);
+});
+
+SendButton.addEventListener('click', function(event) {
+    SendButton.classList.add('AnimSendButton');
+    setTimeout(() => {SendButton.classList.remove('AnimSendButton')}, 1500);
+    SendFormAndElements(event);
+});
+</script>
+</body>
+</html>

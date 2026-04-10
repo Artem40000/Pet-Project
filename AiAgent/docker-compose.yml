@@ -1,0 +1,9 @@
+services:
+  django:
+    build: .
+    container_name: AiContainer
+    command: python manage.py runserver 0.0.0.0:8
+    volumes:
+      - .:/AiAgent
+    ports:
+      - "8:8"

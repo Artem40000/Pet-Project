@@ -1,0 +1,5 @@
+Django
+requests
+bs4
+BeautifulSoup4
+DDGS
