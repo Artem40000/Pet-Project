@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <meta charset="UTF-8">
+    <title>Логин</title>
+    <style>
+        body{
+            background: rgb(25, 25, 25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Container{
+            display: flex;
+            justify-content: center;
+            color: Snow;
+            font-size: 30px;
+            font-family: Arial Black;
+            width: 800px;
+            height: 600px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 25px;
+            background: rgb(25, 25, 100);
+        }
+
+        input{
+            position: absolute;
+            width: 600px;
+            height: 65px;
+            background: rgb(50, 50, 125);
+            border-radius: 15px;
+            border: 0;
+            outline: none;
+            color: Snow;
+            font-size: 30px;
+            font-family: Cursive;
+            margin-top: 200px;
+            transition: 0.3s ease;
+            padding-left: 15px;
+
+            &::placeholder{
+                font-size: 30px;
+                font-family: Cursive;
+                color: DarkGray;
+            }
+
+            &:hover{background: rgb(75, 75, 150)}
+        }
+
+        button{
+            position: absolute;
+            width: 400px;
+            height: 60px;
+            border: 0;
+            border-radius: 25px;
+            margin-top: 450px;
+            color: Snow;
+            font-size: 30px;
+            font-family: Arial Black;
+            background: rgb(75, 75, 155);
+            transition: 0.3s ease-in;
+            cursor: pointer;
+
+            &:hover{background: rgb(100, 100, 180)}
+        }
+
+        .Reg{
+            position: absolute;
+            font-size: 50px;
+            margin-top: 525px;
+            margin-left: 700px;
+            transition: 0.2s ease;
+            cursor: pointer;
+
+            &:hover{color: DarkGray}
+        }
+
+        @media (max-width: 520px) {
+            input{width: 400px}
+            .Reg{margin-left: -0px}
+        }
+
+        @media (max-width: 400px) {
+            input{width: 300px}
+            button{width: 300px}
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="Container">
+        <h2>Вход</h2>
+
+        <input type="text" name="Name" placeholder="Имя:"/>
+        <input type="password" name="Password" placeholder="Пароль:" style="margin-top: 300px"/>
+
+        <button>ПОДТВЕРДИТЬ</button>
+
+        <i class="fi fi-sr-user-add Reg"></i>
+    </div>
+</form>
+<script>
+document.querySelector('.Reg').addEventListener('click', function() {window.location.href = "http://localhost:8000/register/";})
+</script>
+</body>
+</html>

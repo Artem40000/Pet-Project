@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <meta charset="UTF-8">
+    <title>Главная -> <{{person.Name}}></title>
+    <style>
+        body{
+            min-height: 98vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(25, 25, 75);
+        }
+
+        .ContainerAction{
+            position: absolute;
+            display: flex;
+            width: 600px;
+            height: 100px;
+            border-radius: 50px;
+            border: 0;
+            background: rgb(75, 75, 175, 0.3);
+            margin-top: 775px;
+            justify-content: center;
+            align-items: center;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+            .ContainerAction > i{
+                position: absolute;
+                text-align: center;
+                line-height: 85px;
+                width: 75px;
+                height: 75px;
+                background: rgb(75, 75, 175);
+                border-radius: 50%;
+                transition: 0.3s ease;
+                cursor: pointer;
+                font-size: 40px;
+                font-family: Cursive;
+                color: rgb(150, 150, 225);
+
+                &:hover{background: rgb(100, 100, 200)}
+            }
+
+
+
+
+
+        .ContainerCreateTask,
+        .ContainerAccount,
+        .ContainerAgent,
+        .ContainerTasks{
+            width: 1600px;
+            height: 900px;
+            border-radius: 30px;
+            font-size: 40px;
+            font-family: Cursive;
+            color: rgb(150, 150, 225);
+            justify-content: center;
+            background: rgb(25, 25, 125);
+            display: none;
+        }
+
+            input{
+                position: absolute;
+                width: 1000px;
+                height: 100px;
+                color: Snow;
+                font-size: 40px;
+                font-family: Cursive;
+                border-radius: 35px;
+                border: 0;
+                outline: none;
+                margin-top: 200px;
+                background: rgb(50, 50, 155);
+                transition: 0.3s ease;
+                padding-left: 15px;
+
+                &::placeholder{color: rgb(25, 25, 125)}
+                &:hover{background: rgb(50, 50, 155, 0.7)}
+            }
+
+            .Name, .Description, .Time, .Password{
+                font-size: 40px;
+                color: rgb(50, 50, 150);
+                position: absolute;
+                margin-left: 1100px;
+            }
+
+            .Name{margin-top: 225px}
+            .Description{margin-top: 375px}
+            .Time{margin-top: 525px}
+
+            .CreateTask{
+                position: absolute;
+                width: 500px;
+                height: 80px;
+                border-radius: 25px;
+                border: 10px solid rgb(50, 50, 150);
+                font-size: 40px;
+                color: rgb(150, 150, 225);
+                font-family: Arial Black;
+                background: rgb(25, 25, 125);
+                margin-top: 650px;
+                transition: 0.2s;
+                cursor: pointer;
+
+                &:hover{border: 10px solid rgb(75, 75, 150)}
+            }
+
+
+
+
+
+        .Password{margin-top: 375px}
+
+        .Edit, .Delete{
+            position: absolute;
+            width: 115px;
+            height: 115px;
+            margin-top: 500px;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(75, 75, 225);
+            font-size: 60px;
+            line-height: 0;
+            outline: none;
+        }
+
+        .Edit, .Delete{background: rgb(50, 50, 150); &:hover{outline: 10px solid rgb(75, 75, 175)}}
+        .Edit{margin-left: -550px}
+        .Delete{margin-left: 550px}
+
+
+
+
+
+        textarea{
+            left: 50%;
+            width: 700px;
+            height: 78px;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 0;
+            background: rgb(50, 50, 50);
+            outline: none;
+            font-size: 20px;
+            color: Snow;
+            font-family: Arial Black;
+            padding-top: 20px;
+            padding-right: 70px;
+            padding-left: 20px;
+            max-height: 200px;
+            bottom: 250px;
+            resize: none;
+            margin-top: auto;
+            margin-bottom: 150px;
+            margin-left: 800px;
+
+            &::placeholder{
+                font-size: 20px;
+                color: Gray;
+                font-family: Arial Black;
+            }
+
+            &::-webkit-scrollbar {width: 6px}
+            &::-webkit-scrollbar-track {background: transparent}
+            &::-webkit-scrollbar-thumb {background: rgba(255, 255, 255, 0.2); border-radius: 10px}
+            &::-webkit-scrollbar-thumb:hover {background: rgba(255, 255, 255, 0.35)}
+        }
+
+
+
+        .HeaderOne{
+            font-size: 20px;
+            color: Snow;
+            font-family: Arial Black;
+            max-width: 1000px;
+            margin-left: -500px;
+            margin-top: 100px;
+            position: absolute;
+        }
+
+        .Message{
+            position: absolute;
+            display: none;
+            max-width: 500px;
+            width: auto;
+            height: auto;
+            max-height: 400px;
+            text-align: left;
+            font-size: 20px;
+            background: rgb(50, 50, 50);
+            border-radius: 15px;
+            padding: 20px;
+            overflow-wrap: break-word;
+            margin-top: 20px;
+            margin-right: -1050px;
+            font-family: Arial Black;
+            color: Snow;
+        }
+
+
+        .CopyHeader,
+        .CopyMessage{
+            font-size: 24px;
+            color: rgb(175, 175, 175);
+            transition: 0.3s ease;
+            cursor: pointer;
+            display: none;
+
+            &:hover{color: rgb(235, 235, 235)}
+        }
+        .CopyMessage{margin-left: 450px}
+
+        @keyframes SuccessCopy{
+            0%{color: rgb(175, 175, 175)}
+            50%{color: #389b3c}
+            100%{color: rgb(175, 175, 175)}
+        }
+
+        .CopyHeader.AnimForCopy,
+        .CopyMessage.AnimForCopy{animation: SuccessCopy 1s linear forwards}
+
+
+
+
+
+        .TasksHat{
+            width: 1600px;
+            height: 150px;
+            text-align: center;
+            background: rgb(15, 15, 115);
+            border-radius: 30px 30px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ButtonCreateTask{
+            width: 350px;
+            height: 75px;
+            background: rgb(75, 155, 125);
+            color: Snow;
+            font-size: 30px;
+            font-family: Arial Black;
+            line-height: 70px;
+            border-radius: 25px;
+            margin-left: 1100px;
+            cursor: pointer;
+            position: absolute;
+            transition: 0.2s ease;
+
+            &:hover{background: rgb(100, 180, 150)}
+        }
+
+
+        .ContainerTasks{
+            width: 1600px;
+            height: 900px;
+            border-radius: 30px;
+            background: rgb(25, 25, 125);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .TasksHat{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 20px 30px;
+            flex-shrink: 0;
+        }
+
+        .Tasks{
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-sizing: border-box;
+        }
+
+        .TaskItem{
+            width: 100%;
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(100, 150, 255, 0.5);
+            box-sizing: border-box;
+        }
+
+        .TaskItem h1{
+            font-family: Arial Black;
+            font-size: 20px;
+            color: rgb(225, 225, 255);
+            margin: 4px 0;
+        }
+
+        .TaskItem h1 span{color: rgb(255, 180, 0)}
+        a{text-decoration: none; display: block; width: 250px}
+
+        .DeleteTask{
+            width: 250px;
+            height: 60px;
+            border-radius: 25px;
+            font-size: 24px;
+            font-family: Arial Black;
+            color: Snow;
+            background: Crimson;
+            text-align: center;
+            line-height: 60px;
+            transition: 0.3s ease;
+            margin-top: -75px;
+            margin-left: 1300px;
+
+            &:hover{background: rgb(210, 90, 110)}
+        }
+    </style>
+</head>
+<body>
+<div class="ContainerAction">
+    <i class="fi fi-sr-list-check Task" style="margin-left: -500px"></i>
+    <i class="fi fi-sr-user User" style="margin-left: -175px"></i>
+    <i class="fi fi-sr-globe Agent" style="margin-left: 175px"></i>
+    <i class="fi fi-sr-home Home" style="margin-left: 500px"></i>
+</div>
+<form method="POST">
+{% csrf_token %}
+    <div class="ContainerAgent">
+        <textarea placeholder="Поиск:" maxlength="250" name="query"></textarea>
+
+        <div class="Message">
+            <i class="fi fi-sr-copy CopyMessage"></i>
+        </div>
+
+        <h2 class="HeaderOne">
+            <span class="HeaderOneResult">{{answer}}</span>
+            <i class="fi fi-sr-copy CopyHeader"></i>
+        </h2>
+    </div>
+
+
+
+    <div class="ContainerTasks">
+        <div class="TasksHat">
+            <h2>ВАШИ ЗАДАЧИ:</h2>
+            <h2 class="ButtonCreateTask">СОЗДАТЬ ЗАДАЧУ</h2>
+        </div>
+
+        <div class="Tasks">
+            {% for task in tasks %}
+                <div class="TaskItem">
+                    <h1 class="TaskName">Название: <span>{{task.Name}}</span></h1>
+                    <h1 class="TaskDescription">Описание: <span>{{task.Description}}</span></h1>
+                    <h1 class="TaskTime">Время: <span>{{task.Time}}</span></h1>
+
+                    <a href="http://localhost:8000/deleteTask/{{task.id}}"><h2 class="DeleteTask">УДАЛИТЬ</h2></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</form>
+
+
+
+<form method="POST" action="{% url 'Edit' Name=person.Name %}">
+    {% csrf_token %}
+        <div class="ContainerAccount" style="display: flex">
+        <h2>Мой Аккаунт</h2>
+
+        <input type="text" name="Name" placeholder="Имя:" minlength="4" maxlength="24" value="{{person.Name}}">
+        <i class="fi fi-sr-add Name"></i>
+
+        <input type="password" name="Password" placeholder="Пароль:" style="margin-top: 350px" minlength="6" maxlength="48" value="{{person.Password}}">
+        <i class="fi fi-sr-lock Password"></i>
+
+        <button class="Edit"><i class="fi fi-sr-user-pen EditIcon"></i></button>
+
+        <h2 class="Delete"><i class="fi fi-sr-delete-user DeleteIcon"></i></h2>
+    </div>
+</form>
+
+
+
+<form method="POST" action="{% url 'CreateTask' Name=person.Name %}">
+    {% csrf_token %}
+    <div class="ContainerCreateTask">
+        <h2>Создать задачу</h2>
+
+        <input type="text" name="Name" placeholder="Название:" maxlength="20" minlength="4">
+        <i class="fi fi-sr-plus Name"></i>
+
+        <input type="text" name="Description" placeholder="Описание:" style="margin-top:350px" maxlength="60" minlength="4">
+        <i class="fi fi-sr-pencil Description"></i>
+
+        <input type="text" name="Time" placeholder="Время [HH:MM]:" style="margin-top:500px" minlength="3" maxlength="5" pattern="^([01]\d|2[0-3]):([0-5]\d)$" required>
+        <i class="fi fi-sr-clock Time"></i>
+
+        <button class="CreateTask">СОЗДАТЬ</button>
+    </div>
+</form>
+<script>
+const ContainerCreateTask = document.querySelector('.ContainerCreateTask')
+const ContainerAccount = document.querySelector('.ContainerAccount')
+const ContainerAgent = document.querySelector('.ContainerAgent')
+const ContainerTasks = document.querySelector('.ContainerTasks')
+const ButtonCreateTask = document.querySelector('.ButtonCreateTask')
+const DeleteTask = document.querySelector('.DeleteTask')
+const Task = document.querySelector('.Task')
+const Temp = document.querySelector('.Temp')
+const User = document.querySelector('.User')
+const Agent = document.querySelector('.Agent')
+const Home = document.querySelector('.Home')
+const Delete = document.querySelector('.Delete')
+const textarea = document.querySelector('textarea')
+const Message = document.querySelector('.Message')
+const HeaderOne = document.querySelector('.HeaderOne')
+const Think = document.querySelector('.Think')
+const CopyHeader = document.querySelector('.CopyHeader')
+const HeaderOneResult = document.querySelector('.HeaderOneResult')
+const icon = document.createElement('i')
+
+
+Delete.addEventListener('click', function() {window.location.href="http://localhost:8000/delete/{{person.Name}}"});
+Home.addEventListener('click', function() {window.location.href="http://localhost:8000/register"});
+
+
+
+Task.addEventListener('click', function() {
+    ContainerAccount.style.display = 'none';
+    ContainerAgent.style.display = 'none';
+    ContainerCreateTask.style.display = 'none';
+    ContainerTasks.style.display = 'flex';
+    localStorage.setItem('item', 'task');
+});
+
+User.addEventListener('click', function() {
+    ContainerTasks.style.display = 'none';
+    ContainerAgent.style.display = 'none';
+    ContainerCreateTask.style.display = 'none';
+    ContainerAccount.style.display = 'flex';
+    localStorage.setItem('item', 'user');
+});
+
+Agent.addEventListener('click', function() {
+    ContainerTasks.style.display = 'none';
+    ContainerAccount.style.display = 'none';
+    ContainerCreateTask.style.display = 'none';
+    ContainerAgent.style.display = 'flex';
+    localStorage.setItem('item', 'agent');
+});
+
+ButtonCreateTask.addEventListener('click', function() {
+    ContainerTasks.style.display = 'none';
+    ContainerCreateTask.style.display = 'flex';
+})
+
+
+
+
+textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+});
+
+Message.addEventListener('input', () => {
+    Message.style.height = 'auto';
+    Message.style.height = Message.Height + 'px';
+});
+
+function SendFormAndElements(event) {
+    if (textarea.value.trim() === "") {
+        event.preventDefault();
+        return;
+    }
+
+    localStorage.setItem("text", textarea.value);
+    Message.style.display = 'block';
+    event.preventDefault();
+    document.querySelector('form').submit();
+    Message.textContent = textarea.value;
+    textarea.value = "";
+    Think.style.display = 'block';
+    CopyHeader.style.display = 'none';
+    HeaderOne.textContent = '';
+};
+
+textarea.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        SendFormAndElements(event);
+    }
+});
+
+if (HeaderOneResult.textContent != ''){CopyHeader.style.display = 'inline-block'}
+
+
+
+if (Message.textContent.trim() !== "" || HeaderOne.textContent.trim() !== "") {
+    Message.style.display = "block";
+    Message.textContent = localStorage.getItem("text") || "";
+    icon.className = 'fi fi-sr-copy CopyMessage';
+    Message.appendChild(icon);
+    icon.style.display = 'inline-block';
+}
+
+CopyHeader.addEventListener('click', function() {
+    CopyHeader.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(HeaderOne.textContent);
+    setTimeout(() => {CopyHeader.classList.remove('AnimForCopy')}, 1500);
+});
+
+icon.addEventListener('click', function() {
+    icon.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(Message.textContent);
+    setTimeout(() => {icon.classList.remove('AnimForCopy')}, 1500);
+});
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const Select = localStorage.getItem('item')
+
+    ContainerTasks.style.display = 'none';
+    ContainerAccount.style.display = 'none';
+    ContainerAgent.style.display = 'none';
+    ContainerCreateTask.style.display = 'none';
+
+
+    if (Select === 'task'){
+        ContainerTasks.style.display = 'flex';
+    } else if (Select === 'user'){
+        ContainerAccount.style.display = 'flex';
+    } else if (Select === 'agent'){
+        ContainerAgent.style.display = 'flex';
+    };
+});
+</script>
+</body>
+</html>

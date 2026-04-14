@@ -1,0 +1,24 @@
+services:
+  django:
+    build: .
+    container_name: ForNoneProject
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/NoneProject
+
+    ports:
+      - "8000:8000"
+
+
+  NNProjDB:
+    image: postgres
+    environment:
+      - POSTGRES_DB=NNdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    container_name: NNProjDB
+    volumes:
+      - NNProjDBData:/var/lib/postgresql
+
+volumes:
+  NNProjDBData: null
