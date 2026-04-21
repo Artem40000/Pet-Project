@@ -1,4 +1,4 @@
-# Pet-Project(Used: Django, Python, PostgreSQL, Docker, Docker-compose, REST API, HTML, CSS, JS).
+# Pet-Project(Used: Django, Python, PostgreSQL, Docker, Docker-compose, REST API, HTML, CSS, JS, Ollama).
 1)AiAgent.
 На главной странице есть поле ввода, когда в него введено значение и нажат Enter/Кнопка отправки, появляется отправленное сообщение и агент начинает работу("Думает"). ИИ-Агент на Ollama с логикой парсинга данных с интернета по заданному запросу, когда данные показаны на форме, их/своё сообщение можно скопировать.
 
