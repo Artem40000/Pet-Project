@@ -1,0 +1,30 @@
+services:
+  django:
+    build: .
+    container_name: ContainerAi
+    command: python manage.py runserver 0.0.0.0:8
+    volumes:
+      - .:/AiProject
+
+    ports:
+      - "8:8"
+
+    depends_on:
+      - ollama
+
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama_ai
+    ports:
+      - "11434:14434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+    restart: unless-stopped
+
+volumes:
+  ollama_data:

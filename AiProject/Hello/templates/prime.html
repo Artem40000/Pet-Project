@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <meta charset="UTF-8">
+    <title>Ai-Agent <Ollama></title>
+    <style>
+        body{background: rgb(25, 25, 25); padding-bottom: 200px}
+
+        .Container{
+            margin: auto;
+            width: 1000px;
+            height: auto;
+            text-align: left;
+            font-family: Arial Black;
+            color: Snow;
+            word-break: break-word;
+        }
+
+        textarea{
+            position: fixed;
+            left: 50%;
+            width: 700px;
+            height: 78px;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 0;
+            background: rgb(50, 50, 50);
+            outline: none;
+            font-size: 20px;
+            color: Snow;
+            font-family: Arial Black;
+            padding-top: 20px;
+            padding-right: 70px;
+            padding-left: 20px;
+            max-height: 200px;
+            bottom: 20px;
+            resize: none;
+            box-shadow: 0 0 5px 0 rgb(75, 75, 75);
+
+            &::placeholder{
+                font-size: 20px;
+                color: Gray;
+                font-family: Arial Black;
+            }
+
+            &::-webkit-scrollbar {width: 6px}
+            &::-webkit-scrollbar-track {background: transparent}
+            &::-webkit-scrollbar-thumb {background: rgba(255, 255, 255, 0.2); border-radius: 10px}
+            &::-webkit-scrollbar-thumb:hover {background: rgba(255, 255, 255, 0.35)}
+        }
+
+
+
+        .HeaderOne{font-size: 16px; margin-top: 50px}
+
+        .Message{
+            margin-left: auto;
+            max-width: 500px;
+            width: auto;
+            height: auto;
+            text-align: left;
+            font-size: 20px;
+            background: rgb(50, 50, 50);
+            border-radius: 15px;
+            padding: 10px;
+            overflow-wrap: break-word;
+            display: none;
+        }
+
+
+        .CopyHeader,
+        .CopyMessage,
+        .CopyCode{
+            font-size: 24px;
+            color: rgb(175, 175, 175);
+            transition: 0.3s ease;
+            cursor: pointer;
+            display: none;
+
+            &:hover{color: rgb(235, 235, 235)}
+        }
+
+        .CopyHeader:hover + .ForCopyHeader{display: flex}
+        .CopyMessage{margin-left: 1000px; &:hover{+ .ForCopyMessage{display: flex}}}
+        .CopyCode{right: 15px; position: absolute; top: 15px; &:hover{+ .ForCopyCode{display: flex}}}
+
+        @keyframes SuccessCopy{
+            0%{color: rgb(175, 175, 175)}
+            50%{color: #389b3c}
+            100%{color: rgb(175, 175, 175)}
+        }
+
+        .CopyHeader.AnimForCopy,
+        .CopyCode.AnimForCopy,
+        .CopyMessage.AnimForCopy{animation: SuccessCopy 1s linear forwards}
+
+
+
+        .SendButton{
+            position: absolute;
+            right: -35px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            background: Snow;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            line-height: 60px;
+            transition: 0.2s ease;
+            display: none;
+
+            &:hover{box-shadow: 0 0 10px 0 Snow}
+        }
+
+        @keyframes SendButton{
+            0%{background: Snow}
+            50%{background: #389b3c}
+            100%{background: Snow}
+        }
+
+        .SendButton.AnimSendButton{animation: SendButton 1s linear forwards}
+
+        .ContainerArea{
+            position: fixed;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            bottom: 25px;
+        }
+
+
+
+
+
+        .Model{
+            font-size: 34px;
+            text-align: center;
+            margin: auto;
+            width: 300px;
+            border-bottom: 3px solid Snow;
+        }
+
+            .ModelName{
+                font-size: 40px;
+                text-align: center;
+                line-height: 0;
+                color: #7c5cff;
+                text-shadow: 0 0 10px rgba(124, 92, 255, 0.6);
+            }
+
+                .ModelName span{color: #d0d4ff}
+
+
+
+
+
+        @keyframes ForModelsOne{
+            from{transform: rotate(0deg)}
+            to{transform: rotate(-45deg)}
+        }
+
+        @keyframes ForModelsTwo{
+            from{transform: rotate(-45deg)}
+            to{transform: rotate(0deg)}
+        }
+
+        @keyframes ForRobot{
+            from{transform: translate(0)}
+            to{transform: translateY(-5px)}
+        }
+
+        @keyframes ForPlane{
+            from{transform: translate(0)}
+            to{transform: translateX(20px)}
+        }
+
+        .OllamaModels{
+            position: absolute;
+            font-size: 30px;
+            color: Snow;
+            font-family: Arial Black;
+            margin-top: 0;
+            margin-left: 95px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 25px;
+            user-select: none;
+
+            &:hover{
+                background: rgb(60, 60, 60);
+            }
+        }
+
+            .Models{
+                font-size: 22px;
+                color: #7c5cff;
+                text-shadow: 0 0 10px rgba(124, 92, 255, 0.6);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 22px;
+                height: 22px;
+                transform-origin: 50% 50%;
+                transition: transform 0.3s;
+            }
+
+            .Models.AnimForModelsOne{animation: ForModelsOne 1s forwards}
+            .Models.AnimForModelsTwo{animation: ForModelsTwo 1s forwards}
+
+
+
+            .SelectModel{
+                position: absolute;
+                font-size: 20px;
+                text-align: left;
+                color: Snow;
+                font-family: Arial Black;
+                width: 250px;
+                height: 125px;
+                background: rgb(45, 45, 45);
+                border-radius: 15px;
+                margin-top: 63px;
+                margin-left: 95px;
+                user-select: none;
+                display: none;
+            }
+
+            .SelectModel h2{
+                cursor: pointer;
+                margin: 0;
+                color: rgb(255, 225, 225);
+                padding-left: 10px;
+
+                &:hover{background: rgb(75, 75, 75)}
+            }
+
+            .Plane, .Robot{
+                font-size: 20px;
+                position: absolute;
+                margin-top: 10px;
+                margin-left: 60px;
+                color: rgb(200, 100, 125);
+            }
+
+            .Brain:hover{
+                .Robot{animation: ForRobot 1s forwards}
+            }
+            .Speed:hover{
+                .Plane{animation: ForPlane 1s forwards}
+            }
+
+        .NewChat{
+            font-size: 34px;
+            color: rgb(200, 225, 225);
+            position: absolute;
+            margin-top: 7px;
+            margin-left: 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover{
+                background: rgb(60, 60, 60);
+                + .ForNewChat{display: flex}
+            }
+        }
+
+
+
+
+
+        .CodeBox{
+            width: 1000px;
+            height: auto;
+            font-size: 20px;
+            font-family: 'Fira Code';
+            color: Snow;
+            background: rgb(50, 50, 50);
+            border-radius: 15px;
+            outline: 5px solid rgb(75, 75, 75);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 10px;
+            margin-top: 35px;
+            position: relative;
+        }
+
+            .Language{
+                position: absolute;
+                font-size: 20px;
+                color: rgb(200, 100, 100);
+                margin-top: -10px;
+                font-family: Arial Black;
+                border-bottom: 2px solid rgb(200, 100, 100);
+            }
+
+        .ForNewChat{
+            position: absolute;
+            margin-top: 60px;
+            margin-left: -5px;
+            font-size: 16px;
+            font-family: Cursive;
+            color: Snow;
+            background: rgb(60, 60, 60);
+            width: 100px;
+            height: 25px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            white-space: pre-wrap;
+            display: none;
+        }
+
+        .ForCopyMessage,
+        .ForCopyHeader,
+        .ForCopyCode{
+            font-size: 14px;
+            font-family: Arial Black;
+            color: Snow;
+            background: rgb(60, 60, 60);
+            border-radius: 25px;
+            width: 125px;
+            height: 25px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            margin-left: 950px;
+            margin-top: 0;
+            display: none;
+        }
+
+        .ForCopyHeader{margin-left: -50px}
+        .ForCopyCode{margin-left: 910px; margin-top: 30px}
+
+
+
+
+
+        .ThinkCubes{
+            display: flex;
+            width: 0;
+            height: 0;
+            align-items: center;
+            justify-content: center;
+            margin-left: 25px;
+            margin-top: 50px;
+            display: none;
+        }
+
+        .ThinkCubes i{
+            font-size: 30px;
+            color: rgb(75, 75, 175);
+        }
+
+        .ThinkCubeOne{transform: translateX(15px); animation: ForThinkCube 3s linear infinite}
+        .ThinkCubeTwo{transform: translateY(-25px); animation: ForThinkCube 2s linear infinite, ForThinkCubeTwoPosition 2s linear 1s forwards}
+        .ThinkCubeThree{transform: translateX(-15px); animation: ForThinkCube 1s linear infinite, ForThinkCubeThreePosition 2s linear 2s forwards}
+
+        @keyframes ForThinkCube{
+            0%{color: rgb(75, 75, 175)}
+            25%{color: rgb(50, 50, 150)}
+            50%{color: rgb(25, 25, 125)}
+            75%{color: rgb(75, 75, 175)}
+            100%{color: rgb(100, 100, 200)}
+        }
+
+        @keyframes ForThinkCubeTwoPosition{
+            from{transform: translate(0, -25px)}
+            to{transform: translate(15px, 0)}
+        }
+
+        @keyframes ForThinkCubeThreePosition{
+            from{transform: translate(-15px, 0)}
+            to{transform: translate(-30px, -25px)}
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <i class="fi fi-sr-pen-square NewChat"></i>
+    <h2 class="ForNewChat">Новый чат</h2>
+    <h2 class="OllamaModels">MODELS <i class="fi fi-sr-apps Models"></i></h2>
+    <div class="SelectModel">
+        <h2 class="Brain" style="margin-top: 20px" onclick="go('llama')">УМНАЯ <i class="fi fi-sr-user-robot Robot"></i> </h2>
+        <h2 class="Speed" onclick="go('qwen')">БЫСТРАЯ <i class="fi fi-sr-paper-plane-top Plane" style="margin-left: 10px"></i> </h2>
+    </div>
+
+
+    <div class="ContainerArea">
+        <textarea placeholder="Поиск:" maxlength="400" name="query"></textarea>
+        <h2 class="SendButton"><i class="fi fi-sr-arrow-small-up"></i></h2>
+    </div>
+
+    <div class="Container">
+        <div class="Message"></div>
+        <i class="fi fi-sr-copy CopyMessage"></i>
+        <h2 class="ForCopyMessage">Копировать</h2>
+
+
+        <div class="ContainerOllama">
+            <h2 class="Model">Ollama</h2>
+            <h2 class="ModelName">Model name: <span class="SpanModel">{{Model}}</span></h2>
+        </div>
+
+        <div class="ThinkCubes">
+            <i class="fi fi-sr-cube ThinkCubeOne"></i>
+            <i class="fi fi-sr-cube ThinkCubeTwo"></i>
+            <i class="fi fi-sr-cube ThinkCubeThree"></i>
+        </div>
+
+        {% if mode == "chat" %}
+            <h2 class="HeaderOne">{{answer}}</h2>
+            <i class="fi fi-sr-copy CopyHeader"></i>
+            <h2 class="ForCopyHeader">Копировать</h2>
+        {% endif %}
+
+
+        {% if mode == "code" %}
+            <h2 class="HeaderOne">{{theory}}</h2>
+            <i class="fi fi-sr-copy CopyHeader"></i>
+            <h2 class="ForCopyHeader">Копировать</h2>
+
+            <div class="CodeBox">
+                <i class="fi fi-sr-copy CopyCode"></i>
+                <h2 class="ForCopyCode">Копировать</h2>
+                <h2 class="Language">{{language}}</h2>
+                <pre style="margin-top: 40px">{{code}}</pre>
+            </div>
+        {% endif %}
+    </div>
+</form>
+<script>
+const textarea = document.querySelector('textarea')
+const HeaderOne = document.querySelector('.HeaderOne')
+const ThinkCubes = document.querySelector('.ThinkCubes')
+const CopyHeader = document.querySelector('.CopyHeader')
+const CopyCode = document.querySelector('.CopyCode')
+const SendButton = document.querySelector('.SendButton')
+const ContainerOllama = document.querySelector('.ContainerOllama')
+const OllamaModels = document.querySelector('.OllamaModels')
+const SelectModel = document.querySelector('.SelectModel')
+const NewChat = document.querySelector('.NewChat')
+const CodeBox = document.querySelector('.CodeBox')
+const icon = document.querySelector('.CopyMessage')
+const Message = document.querySelector('.Message')
+const form = document.querySelector('form')
+const Models = document.querySelector('.Models')
+let ClickOllamaModels = false;
+
+
+
+
+window.go = function(value){window.location.href = '/?selected=' + value};
+
+NewChat.addEventListener('click', function() {window.location.href='http://localhost:8/'});
+
+OllamaModels.addEventListener('click', function(e) {
+    e.stopPropagation();
+
+    if (!ClickOllamaModels) {
+        SelectModel.style.display = 'block';
+        ClickOllamaModels = true;
+        Models.classList.add('AnimForModelsOne')
+        Models.classList.remove('AnimForModelsTwo')
+    } else{
+        SelectModel.style.display = 'none';
+        ClickOllamaModels = false;
+        Models.classList.add('AnimForModelsTwo')
+        Models.classList.remove('AnimForModelsOne')
+    };
+});
+
+document.addEventListener('click', function(e) {
+    if (!OllamaModels.contains(e.target) && !SelectModel.contains(e.target)) {
+        SelectModel.style.display = 'none';
+        ClickOllamaModels = false;
+        Models.classList.remove('AnimForModelsOne')
+        Models.classList.remove('AnimForModelsTwo')
+    }
+});
+
+
+
+textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+});
+
+Message.addEventListener('input', () => {
+    Message.style.height = 'auto';
+    Message.style.height = Message.Height + 'px';
+});
+
+
+
+
+function SendFormAndElements(event) {
+    if (textarea.value.trim() === "") {
+        event.preventDefault();
+        return;
+    }
+
+    localStorage.setItem("text", textarea.value);
+    Message.style.display = 'block';
+    event.preventDefault();
+    ContainerOllama.style.display = 'none';
+    form.submit();
+    Message.textContent = textarea.value;
+    textarea.value = "";
+    ThinkCubes.style.display = 'flex';
+    CopyHeader.style.display = 'none';
+    SendButton.style.display = 'none';
+    HeaderOne.style.display = 'none';
+    CopyMessage.style.display = 'none';
+};
+
+textarea.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        SendFormAndElements(event);
+    }
+});
+
+textarea.addEventListener('input', function() {
+    if (textarea.value.trim() !== "") {
+        SendButton.style.display = 'block';
+    } else {
+        SendButton.style.display = 'none';
+    };
+});
+
+SendButton.addEventListener('click', function(event) {
+    SendButton.classList.add('AnimSendButton');
+    setTimeout(() => {SendButton.classList.remove('AnimSendButton')}, 1500);
+    SendFormAndElements(event);
+});
+
+
+if (CodeBox && CodeBox.textContent.trim() !== "") {
+    CodeBox.style.display = 'block';
+    HeaderOne.style.display = 'block';
+    Message.style.display = 'block';
+    icon.style.display = 'inline-block';
+    CopyHeader.style.display = 'inline-block';
+    Message.textContent = localStorage.getItem("text") || "";
+    ContainerOllama.style.display = 'none';
+    CopyCode.style.display = 'inline-block';
+} else if (Message.textContent.trim() !== "" || HeaderOne.textContent.trim() !== "") {
+    Message.style.display = 'block';
+    icon.style.display = 'inline-block';
+    CopyHeader.style.display = 'inline-block';
+    Message.textContent = localStorage.getItem("text") || "";
+    ContainerOllama.style.display = 'none';
+};
+
+
+CopyHeader.addEventListener('click', function() {
+    CopyHeader.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(HeaderOne.textContent);
+    setTimeout(() => {CopyHeader.classList.remove('AnimForCopy')}, 1500);
+});
+
+icon.addEventListener('click', function() {
+    icon.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(Message.textContent);
+    setTimeout(() => {icon.classList.remove('AnimForCopy')}, 1500);
+});
+
+CopyCode.addEventListener('click', function() {
+    const CodeText = document.querySelector('pre').textContent.trim();
+    CopyCode.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(CodeText);
+    setTimeout(() => {CopyCode.classList.remove('AnimForCopy')}, 1500);
+});
+</script>
+</body>
+</html>
