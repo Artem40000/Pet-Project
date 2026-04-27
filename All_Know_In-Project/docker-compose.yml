@@ -1,0 +1,42 @@
+services:
+  django:
+    build: .
+    container_name: Container_All_Know_Project
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/All_Know_In-Project
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      - ollama
+
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+
+
+  All_Know_Project_DataBase:
+    image: postgres
+    environment:
+      - POSTGRES_DB=All_Know_Project_DB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    container_name: All_Know_Project_DataBase
+    volumes:
+      - All_Know_Project_Data:/var/lib/postgresql/
+
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama_ai
+    ports:
+      - "11434:14434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  All_Know_Project_Data:

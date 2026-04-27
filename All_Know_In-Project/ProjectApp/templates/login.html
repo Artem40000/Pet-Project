@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <style>
+        body{
+            background: rgb(25, 25, 25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Container{
+            width: 900px;
+            height: 700px;
+            background: rgb(40, 40, 125);
+            text-align: center;
+            font-size: 30px;
+            color: SkyBlue;
+            font-family: Cursive;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+        }
+
+            input{
+                position: absolute;
+                width: 700px;
+                height: 75px;
+                font-size: 30px;
+                color: Black;
+                font-family: Cursive;
+                border-radius: 20px;
+                border: 0;
+                outline: none;
+                margin-top: 200px;
+                padding-left: 5px;
+                background: rgb(80, 80, 165);
+                transition: 0.3s ease;
+
+                &::placeholder{
+                    color: rgb(40, 40, 125);
+                    font-family: Arial Black;
+                }
+
+                &:hover{background: rgb(100, 100, 185)}
+            }
+
+            button{
+                position: absolute;
+                margin-top: 450px;
+                width: 600px;
+                height: 75px;
+                font-size: 30px;
+                color: SkyBlue;
+                font-family: Arial Black;
+                border-radius: 20px;
+                border: 5px solid Snow;
+                box-shadow: 0 0 10px 0 Snow;
+                background: rgb(40, 40, 125);
+                cursor: pointer;
+                transition: 0.2s linear;
+
+                &:hover{box-shadow: 0 0 20px 0 Snow;}
+            }
+
+            .Reg{
+                position: absolute;
+                font-size: 40px;
+                color: Snow;
+                margin-left: 800px;
+                margin-top: 10px;
+                width: 75px;
+                height: 75px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+                cursor: pointer;
+
+                &:hover{background: rgb(60, 60, 145)}
+            }
+
+            .Reg.AnimReg{animation: ForReg 0.3s forwards}
+
+            @keyframes ForReg{
+                50%{background: rgb(60, 60, 145)}
+                100%{width: 250px;  margin-left: 625px}
+            }
+
+            .RegH2{
+                font-size: 22px;
+                font-family: Arial Black;
+                display: none;
+                border-bottom: 3px solid Snow;
+                margin-left: 10px;
+            }
+    </style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="Container">
+        <h2>Вход</h2>
+
+        <i class="fi fi-sr-user-add Reg"><h2 class="RegH2">Регистрация</h2></i>
+
+        <input type="text" name="Name" placeholder="Имя:"/>
+        <input type="password" name="Password" placeholder="Пароль:" style="margin-top: 325px"/>
+
+        <button>ВОЙТИ</button>
+    </div>
+
+</form>
+<script>
+const RegH2 = document.querySelector('.RegH2')
+const Reg = document.querySelector('.Reg')
+
+Reg.addEventListener('click', function() {
+    window.location.href='http://localhost:8000/register/';
+});
+Reg.addEventListener('mouseenter', function() {
+    Reg.classList.add('AnimReg');
+    Time = setTimeout(() => {RegH2.style.display = 'block'}, 250);
+});
+Reg.addEventListener('mouseleave', function() {
+    Reg.classList.remove('AnimReg');
+    clearTimeout(Time);
+    RegH2.style.display = 'none';
+});
+</script>
+</body>
+</html>

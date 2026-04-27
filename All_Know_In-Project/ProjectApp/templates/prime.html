@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <style>
+        body{
+            background: rgb(25, 25, 25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ContainerFixedLeft{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            background: rgb(50, 50, 50);
+        }
+
+            .ContainerFixedLeft h2{
+                display: flex;
+                justify-content: right;
+                align-items: center;
+                position: absolute;
+                font-size: 20px;
+                color: Snow;
+                font-family: Cursive;
+                width: 150px;
+                height: 50px;
+                margin-left: 10px;
+                border-radius: 50px;
+                cursor: pointer;
+                border: 5px solid rgb(100, 25, 175);
+                padding-right: 20px;
+                background: rgb(125, 50, 200);
+                user-select: none;
+            }
+
+            .ContainerFixedLeft h2 i{
+                position: absolute;
+                background: rgb(80, 5, 155);
+                border-radius: 50px;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                left: 0;
+                box-shadow: inset 0 0 0 5px rgb(100, 25, 175);
+            }
+
+
+
+
+
+
+
+        .ContainerAccount{
+            display: flex;
+            justify-content: center;
+            width: 900px;
+            height: 800px;
+            margin-top: 50px;
+            color: rgb(225, 225, 255);
+            font-size: 30px;
+            font-family: Cursive;
+            background: rgb(25, 25, 75);
+            border-radius: 25px;
+            box-shadow: 0 0 3px 5px rgb(75, 75, 125);
+        }
+
+            .ContainerAccount input{
+                position: absolute;
+                margin-top: 250px;
+                width: 700px;
+                height: 85px;
+                border-radius: 25px;
+                border: 0;
+                outline: none;
+                color: Snow;
+                font-size: 30px;
+                font-family: Arial Black;
+                background: rgb(75, 75, 125);
+                padding-left: 10px;
+                caret-color: #8B5CF6;
+                transition: 0.2s ease;
+
+                &::placeholder{
+                    font-size: 30px;
+                    font-family: Cursive;
+                    color: rgb(25, 25, 75);
+                }
+
+                &:hover{box-shadow: 0 0 10px 0 SkyBlue}
+            }
+
+            .FromAccountNameIcon,
+            .FromAccountPasswordIcon{
+                position: absolute;
+                margin-left: 800px;
+                margin-top: 265px;
+                font-size: 50px;
+                color: SkyBlue;
+            }
+
+            .EditFromAccount{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 65px;
+                margin-top: 550px;
+                margin-left: -400px;
+                border-radius: 50px;
+                border: 0;
+                color: SkyBlue;
+                font-size: 30px;
+                font-family: Cursive;
+                padding-right: 25px;
+                background: rgb(60, 130, 240);
+                cursor: pointer;
+            }
+
+            .DeleteFromAccount{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 65px;
+                margin-top: 550px;
+                margin-left: 400px;
+                border-radius: 50px;
+                border: 0;
+                color: SkyBlue;
+                font-size: 30px;
+                font-family: Cursive;
+                padding-left: 10px;
+                cursor: pointer;
+                background: rgb(60, 130, 240);
+            }
+
+            .EditFromAccountIcon,
+            .DeleteFromAccountIcon{
+                position: absolute;
+                margin-top: 550px;
+                font-size: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 65px;
+                height: 65px;
+                border-radius: 50px;
+                background: rgb(40, 110, 220);
+                cursor: pointer;
+            }
+
+
+
+
+
+
+
+        .ContainerPassword{
+            display: flex;
+            justify-content: center;
+            width: 900px;
+            height: 800px;
+            margin-top: 50px;
+            color: rgb(255, 175, 0);
+            font-size: 30px;
+            font-family: Cursive;
+            background: rgb(200, 125, 50);
+            border-radius: 25px;
+            box-shadow: 0 0 3px 5px rgb(235, 155, 85);
+        }
+
+            .ResultGeneratePassword{
+                position: absolute;
+                width: 700px;
+                height: 75px;
+                font-size: 20px;
+                color: Snow;
+                font-family: Cursive;
+                margin-top: 300px;
+                border-radius: 50px;
+                padding: 10px;
+                background: rgb(215, 140, 65);
+                display: flex;
+                align-items: center;
+            }
+
+
+            .CopyResultGeneratePassword{
+                position: absolute;
+                width: 85px;
+                height: 85px;
+                border-radius: 50px;
+                background: rgb(175, 100, 25);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 305px;
+                margin-left: 625px;
+                color: Snow;
+                cursor: pointer;
+
+                &:hover{color: DarkGray}
+            }
+
+            .ContainerPassword input{
+                position: absolute;
+                width: 200px;
+                height: 75px;
+                border-radius: 50px;
+                background: rgb(215, 140, 65);
+                color: Snow;
+                font-size: 30px;
+                font-family: Cursive;
+                border: 0;
+                outline: none;
+                margin-top: 450px;
+                padding-left: 15px;
+                text-align: center;
+                margin-left: -500px;
+
+                &::placeholder{
+                    color: rgb(200, 125, 50);
+                    font-family: Arial Black;
+                }
+            }
+
+            .DigitsGeneratePassword{margin-left: 500px}
+            .CharacterGeneratePassword{margin-left: 0}
+
+            .DigitsGeneratePassword,
+            .CharacterGeneratePassword{
+                position: absolute;
+                width: 200px;
+                height: 75px;
+                border-radius: 50px;
+                background: rgb(215, 140, 65);
+                color: rgb(200, 125, 50);
+                font-size: 30px;
+                font-family: Cursive;
+                border: 0;
+                outline: none;
+                margin-top: 450px;
+                padding-left: 15px;
+                display: flex;
+                justify-content: left;
+                align-items: center;
+            }
+
+
+            .ConfirmGeneratePassword{
+                position: absolute;
+                width: 500px;
+                height: 75px;
+                cursor: pointer;
+                color: rgb(100, 100, 225);
+                font-size: 30px;
+                font-family: Arial Black;
+                border-radius: 50px;
+                border: 0;
+                margin-top: 600px;
+                background: rgb(30, 60, 95);
+                transition: 0.2s ease;
+
+                &:hover{box-shadow: 0 0 10px 0 rgb(20, 50, 85)}
+            }
+
+
+            .CheckCharacter,
+            .CrossCharacter,
+            .CheckDigits,
+            .CrossDigits{
+                position: absolute;
+                width: 65px;
+                height: 65px;
+                border-radius: 50px;
+                background: rgb(175, 100, 25);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+                margin-left: 130px;
+                cursor: pointer;
+            }
+
+            .CheckCharacter, .CheckDigits{color: Lime}
+            .CrossCharacter, .CrossDigits{color: Crimson}
+            .CrossCharacter, .CheckDigits{display: none}
+
+
+
+
+
+
+
+        .ContainerCubes{
+            display: flex;
+            justify-content: center;
+            width: 1300px;
+            height: 900px;
+            margin-top: 10px;
+            color: rgb(255, 175, 0);
+            font-size: 30px;
+            font-family: Cursive;
+            background: rgb(125, 125, 150);
+            border-radius: 25px;
+            box-shadow: 0 0 3px 5px rgb(175, 175, 200);
+        }
+
+            .CubeOne,
+            .CubeTwo{
+                position: relative;
+                width: 110px;
+                height: 110px;
+                transform-style: preserve-3d;
+                margin-top: 725px;
+                z-index: 2;
+                left: -300px;
+                top: 10px;
+            }
+
+            .FaceOne,
+            .FaceTwo{
+                position: absolute;
+                width: 110px;
+                height: 110px;
+                border-radius: 25px;
+                box-shadow: 0 0 3px 5px rgb(175, 175, 200);
+                background: linear-gradient(315deg, rgb(125, 125, 150), rgb(100, 100, 125), rgb(150, 150, 175));
+            }
+
+            .front{transform: translateZ(60px)}
+            .back{transform: rotateY(180deg) translateZ(60px)}
+            .right{transform: rotateY(90deg) translateZ(60px)}
+            .left{transform: rotateY(-90deg) translateZ(60px)}
+            .top{transform: rotateX(90deg) translateZ(60px)}
+            .bottom{transform: rotateX(-90deg) translateZ(60px)}
+
+            @keyframes SpinOneCube{
+                from{transform: rotateX(-25deg) rotateY(0deg)}
+                to{transform: rotateX(-25deg) rotateY(360deg)}
+            }
+
+            @keyframes SpinTwoCube{
+                from{transform: rotateX(-25deg) rotateY(360deg)}
+                to{transform: rotateX(-25deg) rotateY(0deg)}
+            }
+
+
+
+            .CubeCodeBoxCSS,
+            .CubeCodeBoxHTML{
+                position: relative;
+                width: 900px;
+                height: 870px;
+                background: rgb(28, 25, 23);
+                margin-top: 10px;
+                margin-left: -580px;
+                display: flex;
+                justify-content: left;
+                color: Snow;
+                font-family: JetBrains Mono;
+                font-size: 20px;
+                border-radius: 15px;
+                border: 5px solid rgb(48, 45, 43);
+                padding-left: 10px;
+            }
+
+            .CSSClass{color: rgb(75, 75, 100)}
+            .CSSDigits{color: rgb(200, 75, 75)}
+            .Property{color: rgb(175, 175, 25)}
+            .Punctuation{color: Snow}
+
+            .HTMLClass{color: rgb(75, 75, 150)}
+            .ClassInHTML{color: rgb(225, 225, 0)}
+            .HTMLEqual{color: rgb(225, 75, 125)}
+            .HTMLClassName{color: rgb(75, 150, 75)}
+
+
+
+            .ButtonCubeCodeBox{
+                position: relative;
+                display: flex;
+                gap: 10px;
+            }
+
+            .CopyForCodeCSS,
+            .CopyForCodeHTML{
+                position: absolute;
+                z-index: 1;
+                margin-top: 825px;
+                margin-left: 275px;
+                color: Snow;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                &:hover{color: DarkGray}
+            }
+
+
+            .SelectCSS,
+            .SelectHTML{
+                position: absolute;
+                width: 150px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: SkyBlue;
+                font-size: 30px;
+                font-family: Arial Black;
+                background: rgb(25, 25, 100);
+                border-radius: 15px;
+                left: -15px;
+                cursor: pointer;
+                user-select: none;
+                z-index: 1;
+
+                &:hover{box-shadow: 0 0 10px 0 SkyBlue}
+            }
+
+            .TheoryCube{
+                position: absolute;
+                width: 325px;
+                height: 525px;
+                background: Snow;
+                font-size: 26px;
+                margin-left: 920px;
+                margin-top: 10px;
+                border-radius: 15px;
+                border: 5px solid rgb(48, 45, 43);
+                background: rgb(28, 25, 23);
+                display: flex;
+                justify-content: left;
+                color: Snow;
+                padding: 10px;
+            }
+
+
+
+
+
+
+
+        .ContainerTasks,
+        .ContainerCreateTasks{
+            display: flex;
+            justify-content: center;
+            width: 1300px;
+            height: 900px;
+            margin-top: 10px;
+            color: rgb(225, 0, 155);
+            font-size: 30px;
+            font-family: Cursive;
+            background: rgb(25, 25, 50);
+            border-radius: 25px;
+            box-shadow: 0 0 3px 5px rgb(50, 50, 75);
+            position: relative;
+        }
+
+            .ContainerTasksHat{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgb(15, 15, 35);
+                border-radius: 15px;
+                width: 1275px;
+                top: 15px;
+            }
+
+            .ButtonCreateTask{
+                position: absolute;
+                width: 300px;
+                height: 75px;
+                background: rgb(0, 75, 100);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                font-family: Arial Black;
+                color: SkyBlue;
+                border-radius: 35px;
+                margin-left: 900px;
+                cursor: pointer;
+                transition: 0.2s ease;
+
+                &:hover{box-shadow: inset 0 0 0 50px Teal}
+            }
+
+            .TaskProperty{
+                width: 100%;
+                padding: 10px 20px;
+                box-sizing: border-box;
+                margin-top: 150px;
+            }
+
+            .TaskProperty h1{
+                font-family: Arial Black;
+                font-size: 20px;
+                color: rgb(225, 225, 255);
+                margin: 4px 0;
+            }
+
+            .TaskTime{border-bottom: 5px solid Indigo}
+            .TaskProperty h1 span{color: rgb(255, 180, 0)}
+
+            .ButtonDeleteTask{
+                position: absolute;
+                width: 200px;
+                height: 80px;
+                left: 1050px;
+                background: Crimson;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                border-radius: 35px;
+                transition: 0.2s ease;
+                cursor: pointer;
+
+                &:hover{box-shadow: inset 0 0 0 40px rgb(240, 40, 80)}
+            }
+
+
+
+
+
+
+
+        .ContainerCreateTasks input{
+            position: absolute;
+            width: 900px;
+            height: 100px;
+            color: Snow;
+            font-size: 40px;
+            font-family: Cursive;
+            background: rgb(50, 50, 75);
+            outline: none;
+            border-radius: 25px;
+            border: 0;
+            transition: 0.3s ease;
+            margin-top: 250px;
+            padding-left: 10px;
+
+            &::placeholder{color: rgb(25, 25, 50)}
+            &:hover{background: rgb(75, 75, 100)}
+        }
+
+            .ContainerCreateTasks button{
+                position: absolute;
+                margin-top: 750px;
+                width: 500px;
+                height: 75px;
+                border-radius: 25px;
+                border: 0;
+                background: rgb(0, 75, 100);
+                transition: 0.3s ease;
+                color: SkyBlue;
+                font-family: Arial Black;
+                font-size: 34px;
+                cursor: pointer;
+
+                &:hover{background: rgb(0, 100, 125)}
+            }
+
+
+
+
+
+
+
+        .Container{
+            margin: auto;
+            width: 1000px;
+            height: auto;
+            text-align: left;
+            font-family: Arial Black;
+            color: Snow;
+            word-break: break-word;
+        }
+
+        textarea{
+            position: fixed;
+            left: 50%;
+            width: 700px;
+            height: 78px;
+            transform: translateX(-50%);
+            border-radius: 30px;
+            border: 0;
+            background: rgb(50, 50, 50);
+            outline: none;
+            font-size: 20px;
+            color: Snow;
+            font-family: Arial Black;
+            padding-top: 20px;
+            padding-right: 70px;
+            padding-left: 20px;
+            max-height: 200px;
+            bottom: 20px;
+            resize: none;
+            box-shadow: 0 0 5px 0 rgb(75, 75, 75);
+
+            &::placeholder{
+                font-size: 20px;
+                color: Gray;
+                font-family: Arial Black;
+            }
+
+            &::-webkit-scrollbar {width: 6px}
+            &::-webkit-scrollbar-track {background: transparent}
+            &::-webkit-scrollbar-thumb {background: rgba(255, 255, 255, 0.2); border-radius: 10px}
+            &::-webkit-scrollbar-thumb:hover {background: rgba(255, 255, 255, 0.35)}
+        }
+
+
+
+        .Header{font-size: 16px; margin-top: 50px}
+
+        .Message{
+            margin-left: auto;
+            max-width: 500px;
+            width: auto;
+            height: auto;
+            text-align: left;
+            font-size: 20px;
+            background: rgb(50, 50, 50);
+            border-radius: 15px;
+            padding: 10px;
+            overflow-wrap: break-word;
+            display: none;
+        }
+
+
+        .CopyHeader,
+        .CopyMessage,
+        .CopyCode{
+            font-size: 24px;
+            color: rgb(175, 175, 175);
+            transition: 0.3s ease;
+            cursor: pointer;
+            display: none;
+
+            &:hover{color: rgb(235, 235, 235)}
+        }
+
+        .CopyHeader:hover + .ForCopyHeader{display: flex}
+        .CopyMessage{margin-left: 1000px; &:hover{+ .ForCopyMessage{display: flex}}}
+        .CopyCode{right: 15px; position: absolute; top: 15px; &:hover{+ .ForCopyCode{display: flex}}}
+
+        @keyframes SuccessCopy{
+            0%{color: rgb(175, 175, 175)}
+            50%{color: #389b3c}
+            100%{color: rgb(175, 175, 175)}
+        }
+
+        .CopyHeader.AnimForCopy,
+        .CopyCode.AnimForCopy,
+        .CopyResultGeneratePassword.AnimCopy,
+        .CopyForCodeCSS.AnimCopy,
+        .CopyForCodeHTML.AnimCopy,
+        .CopyMessage.AnimForCopy{animation: SuccessCopy 1s linear forwards}
+
+        .ContainerArea{
+            position: fixed;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            bottom: 25px;
+        }
+
+
+
+
+
+        .Model{
+            font-size: 34px;
+            text-align: center;
+            margin: auto;
+            width: 300px;
+            border-bottom: 3px solid Snow;
+        }
+
+            .ModelName{
+                font-size: 40px;
+                text-align: center;
+                line-height: 0;
+                color: #7c5cff;
+                text-shadow: 0 0 10px rgba(124, 92, 255, 0.6);
+            }
+
+                .ModelName span{color: #d0d4ff}
+
+        .CodeBox{
+            width: 1000px;
+            height: auto;
+            font-size: 20px;
+            font-family: 'Fira Code';
+            color: Snow;
+            background: rgb(50, 50, 50);
+            border-radius: 15px;
+            outline: 5px solid rgb(75, 75, 75);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 10px;
+            margin-top: 35px;
+            position: relative;
+        }
+
+            .Language{
+                position: absolute;
+                font-size: 20px;
+                color: rgb(200, 100, 100);
+                margin-top: -10px;
+                font-family: Arial Black;
+                border-bottom: 2px solid rgb(200, 100, 100);
+            }
+
+        .ForCopyMessage,
+        .ForCopyHeader,
+        .ForCopyCode{
+            font-size: 14px;
+            font-family: Arial Black;
+            color: Snow;
+            background: rgb(60, 60, 60);
+            border-radius: 25px;
+            width: 125px;
+            height: 25px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            margin-left: 950px;
+            margin-top: 0;
+            display: none;
+        }
+
+        .ForCopyHeader{margin-left: -50px}
+        .ForCopyCode{margin-left: 910px; margin-top: 30px}
+
+
+
+
+
+        .bars{
+          display: none;
+          align-items: flex-end;
+          gap: 3px;
+          height: 28px;
+          color: #888;
+          margin-top: 100px;
+          margin-left: 300px;
+        }
+
+        .bars span{
+            display: block;
+            width: 5px;
+            background: currentColor;
+            border-radius: 3px 3px 0 0;
+            animation: wave 1.2s ease-in-out infinite;
+        }
+
+        .bars span:nth-child(1){height: 10px; animation-delay: 0s}
+        .bars span:nth-child(2){height: 20px; animation-delay: .1s}
+        .bars span:nth-child(3){height: 28px; animation-delay: .2s}
+        .bars span:nth-child(4){height: 20px; animation-delay: .3s}
+        .bars span:nth-child(5){height: 10px; animation-delay: .4s}
+
+        @keyframes wave{
+            0%, 100%{transform: scaleY(.4); opacity: .5}
+            50%{transform: scaleY(1);  opacity: 1}
+        }
+    </style>
+</head>
+<body>
+<div class="ContainerFixedLeft">
+    <h2 class="Account" style="margin-top: 25px"><i class="fi fi-sr-user AccountIcon"></i>Аккаунт</h2>
+    <h2 class="Password" style="margin-top: 125px"><i class="fi fi-sr-lock"></i>Пароли</h2>
+    <h2 class="Game" style="margin-top: 225px"><i class="fi fi-sr-cubes"></i>Кубики</h2>
+    <h2 class="Tasks" style="margin-top: 325px"><i class="fi fi-sr-list-check"></i>Задачи</h2>
+    <h2 class="AiAgent" style="margin-top: 425px"><i class="fi fi-sr-chatbot"></i>Агент</h2>
+    <h2 class="Home" style="margin-top: 525px"><i class="fi fi-sr-home"></i>Главная</h2>
+</div>
+
+
+
+<form method="POST" action="{% url 'EditAccount' Name=person.Name %}">
+    {% csrf_token %}
+    <div class="ContainerAccount">
+        <h2>Мой Аккаунт</h2>
+
+        <input type="text" name="Name" placeholder="Имя" value="{{person.Name}}"/>
+        <i class="fi fi-sr-text-input-left FromAccountNameIcon"></i>
+
+        <input type="text" name="Password" placeholder="Пароль" style="margin-top: 375px" value="{{person.Password}}"/>
+        <i class="fi fi-sr-lock-hashtag FromAccountPasswordIcon" style="margin-top: 390px"></i>
+
+        <button class="EditFromAccount">ИЗМЕНИТЬ</button>
+        <i class="fi fi-sr-user-pen EditFromAccountIcon" style="margin-left: -165px"></i>
+
+        <h2 class="DeleteFromAccount">УДАЛИТЬ</h2>
+        <i class="fi fi-sr-delete-user DeleteFromAccountIcon" style="margin-left: 155px"></i>
+    </div>
+</form>
+
+
+
+<form method="POST" action="{% url 'PasswordCreate' Name=person.Name %}" data-url="{% url 'PasswordCreate' Name=person.Name %}">
+    {% csrf_token %}
+    <div class="ContainerPassword" style="display: none">
+        <h2>Генератор рандомных паролей</h2>
+
+        <h2 class="ResultGeneratePassword">{{Password}}</h2>
+        <i class="fi fi-sr-copy CopyResultGeneratePassword"></i>
+
+        <input type="number" name="PasswordLong" placeholder="Длина" min="4" max="48" step="1" inputmode="numeric">
+
+        <h2 class="CharacterGeneratePassword">Символ
+            <i class="fi fi-sr-check CheckCharacter"></i>
+            <i class="fi fi-sr-cross-small CrossCharacter"></i>
+        </h2>
+        <input type="hidden" name="character_state" id="characterState" value="on">
+
+
+        <h2 class="DigitsGeneratePassword">Цифра
+            <i class="fi fi-sr-check CheckDigits"></i>
+            <i class="fi fi-sr-cross-small CrossDigits"></i>
+        </h2>
+        <input type="hidden" name="digits_state" id="digitsState" value="off">
+
+        <button class="ConfirmGeneratePassword" type="submit">СГЕНЕРИРОВАТЬ</button>
+    </div>
+</form>
+
+
+
+<form method="POST">
+    <div class="ContainerCubes" style="display: none">
+        <div class="TheoryCube">
+Этот код создаёт 3D вращающийся куб только на HTML + CSS, без JavaScript.
+Главная идея: 6 обычных &lt;div> превращаются в грани куба через transform.
+<br><br>
+Это иллюзия 3D через CSS трансформации.
+Браузер просто поворачивает плоские квадраты в пространстве и создаёт эффект 3D.
+        </div>
+
+
+        <div class="CubeOne" style="animation: SpinOneCube 5s infinite linear;">
+            <div class="FaceOne front"></div>
+            <div class="FaceOne back"></div>
+            <div class="FaceOne right"></div>
+            <div class="FaceOne left"></div>
+            <div class="FaceOne top"></div>
+            <div class="FaceOne bottom"></div>
+        </div>
+
+        <div class="CubeTwo" style="left: 650px; animation: SpinTwoCube 5s infinite linear;">
+            <div class="FaceTwo front"></div>
+            <div class="FaceTwo back"></div>
+            <div class="FaceTwo right"></div>
+            <div class="FaceTwo left"></div>
+            <div class="FaceTwo top"></div>
+            <div class="FaceTwo bottom"></div>
+        </div>
+
+        <div class="ButtonCubeCodeBox">
+            <i class="fi fi-sr-copy CopyForCodeCSS"></i>
+            <i class="fi fi-sr-copy CopyForCodeHTML" style="display: none"></i>
+
+            <h2 class="SelectCSS" style="background: rgb(50, 50, 125)">CSS</h2>
+            <h2 class="SelectHTML" style="left: 150px">HTML</h2>
+        </div>
+
+        <div class="CubeCodeBoxCSS">
+            <pre>
+.<span class="CSSClass">Cube</span>{
+    position: <span class="Property">relative</span>;
+    width: <span class="CSSDigits">110</span><span class="Property">px</span>;
+    height: <span class="CSSDigits">110</span><span class="Property">px</span>;
+    transform-style: <span class="CSSDigits">preserve-3d</span>;
+    animation: <span class="Property">Spin <span class="CSSDigits">5</span>s infinite linear</span>;
+}
+
+.<span class="CSSClass">Face</span>{
+    position: <span class="Property">absolute</span>;
+    width: <span class="CSSDigits">110</span><span class="Property">px</span>;
+    height: <span class="CSSDigits">110</span><span class="Property">px</span>;
+    border-radius: <span class="CSSDigits">25</span><span class="Property">px</span>;
+    box-shadow:<span class="CSSDigits"> 0 0 5<span class="Property">px</span> 5<span class="Property">px</span> <span class="Property">#</span>AFAFC8</span>;
+    background: <span class="Property">linear-gradient</span><span class="Punctuation">(</span><span class="CSSDigits">315</span><span class="Property">deg</span>, <span class="Property">#</span><span class="CSSDigits">7D7D96</span>, <span class="Property">#</span><span class="CSSDigits">64647D</span>));
+}
+
+.<span class="CSSClass">front</span>{transform: <span class="Property">translateZ<span class="Punctuation">(</span><span class="CSSDigits">60</span>px</span>)}
+.<span class="CSSClass">back</span>{transform: <span class="Property">rotateY<span class="Punctuation">(</span><span class="CSSDigits">180</span>deg<span class="Punctuation">)</span> translateZ<span class="Punctuation">(</span><span class="CSSDigits">60</span>px</span>)}
+.<span class="CSSClass">right</span>{transform: <span class="Property">rotateY<span class="Punctuation">(</span><span class="CSSDigits">90</span>deg<span class="Punctuation">)</span> translateZ<span class="Punctuation">(</span><span class="CSSDigits">60</span>px</span>)}
+.<span class="CSSClass">left</span>{transform: <span class="Property">rotateY<span class="Punctuation">(</span><span class="CSSDigits">-90</span>deg<span class="Punctuation">)</span> translateZ<span class="Punctuation">(</span><span class="CSSDigits">60</span>px</span>)}
+.<span class="CSSClass">top</span>{transform: <span class="Property">rotateX<span class="Punctuation">(</span><span class="CSSDigits">90</span>deg<span class="Punctuation">)</span> translateZ<span class="Punctuation">(</span><span class="CSSDigits">60</span>px</span>)}
+.<span class="CSSClass">bottom</span>{transform: <span class="Property">rotateX<span class="Punctuation">(</span><span class="CSSDigits">-90</span>deg<span class="Punctuation">)</span> translateZ<span class="Punctuation">(</span><span class="CSSDigits">60</span>px</span>)}
+
+<span class="Property">@keyframes</span> <span class="CSSClass">Spin</span>{
+    <span class="Property">from</span>{transform: <span class="Property">rotateX<span class="Punctuation">(</span><span class="CSSDigits">-25</span>deg<span class="Punctuation">)</span> rotateY<span class="Punctuation">(</span><span class="CSSDigits">0</span>deg</span>)}
+    <span class="Property">to</span>{transform: <span class="Property">rotateX<span class="Punctuation">(</span><span class="CSSDigits">-25</span>deg<span class="Punctuation">)</span> rotateY<span class="Punctuation">(</span><span class="CSSDigits">360</span>deg</span>)}
+}</pre>
+        </div>
+
+
+
+        <div class="CubeCodeBoxHTML" style="display: none">
+            <pre>
+<span class="HTMLClass">&lt;div <span class="ClassInHTML">class</span><span class="HTMLEqual">=</span><span class="HTMLClassName">"Cube"></span></span>
+    <span class="HTMLClass">&lt;div <span class="ClassInHTML">class</span><span class="HTMLEqual">=</span><span class="HTMLClassName">"Face front"></span>&lt;/div></span>
+    <span class="HTMLClass">&lt;div <span class="ClassInHTML">class</span><span class="HTMLEqual">=</span><span class="HTMLClassName">"Face back"></span>&lt;/div></span>
+    <span class="HTMLClass">&lt;div <span class="ClassInHTML">class</span><span class="HTMLEqual">=</span><span class="HTMLClassName">"Face right"></span>&lt;/div></span>
+    <span class="HTMLClass">&lt;div <span class="ClassInHTML">class</span><span class="HTMLEqual">=</span><span class="HTMLClassName">"Face left"></span>&lt;/div></span>
+    <span class="HTMLClass">&lt;div <span class="ClassInHTML">class</span><span class="HTMLEqual">=</span><span class="HTMLClassName">"Face top"></span>&lt;/div></span>
+    <span class="HTMLClass">&lt;div <span class="ClassInHTML">class</span><span class="HTMLEqual">=</span><span class="HTMLClassName">"Face bottom"></span>&lt;/div></span>
+<span class="HTMLClass">&lt;/div></span></pre>
+        </div>
+    </div>
+</form>
+
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="ContainerTasks" style="display: none">
+        <div class="ContainerTasksHat">
+            <h2>Ваши задачи</h2>
+
+            <h2 class="ButtonCreateTask">Создать задачу</h2>
+        </div>
+
+        <div class="TaskProperty">
+            {% for task in tasks %}
+                <a href="http://localhost:8000/task-delete/{{task.id}}"><h1 class="ButtonDeleteTask">УДАЛИТЬ</h1></a>
+
+                <h1 class="TaskName">Название: <span>{{task.Task_Name}}</span></h1>
+                <h1 class="TaskDescription">Описание: <span>{{task.Task_Descriptions}}</span></h1>
+                <h1 class="TaskTime">Время: <span>{{task.Task_Time}}</span></h1>
+            {% endfor %}
+        </div>
+    </div>
+</form>
+
+
+
+<form method="POST" action="{% url 'CreateTask' Name=person.Name %}">
+    {% csrf_token %}
+    <div class="ContainerCreateTasks" style="display: none">
+        <h2>Создание задачи</h2>
+
+        <input type="text" name="Task_Name" placeholder="Название:" maxlength="20" minlength="4">
+        <input type="text" name="Task_Descriptions" placeholder="Описание:" style="margin-top:400px" maxlength="50" minlength="4">
+        <input type="text" name="Task_Time" placeholder="Время [HH:MM]:" style="margin-top:550px" minlength="3" maxlength="5" pattern="^([01]\d|2[0-3]):([0-5]\d)$" required>
+
+        <button>СОЗДАТЬ</button>
+    </div>
+</form>
+
+
+
+
+<form method="POST" class="AgentForm" action="{% url 'Prime' Name=person.Name %}">
+    {% csrf_token %}
+    <div class="ContainerAgent" style="display: none">
+    <div class="ContainerArea">
+        <textarea placeholder="Поиск:" maxlength="400" name="query"></textarea>
+    </div>
+
+    <div class="bars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <div class="Container">
+        <div class="Message"></div>
+        <i class="fi fi-sr-copy CopyMessage"></i>
+        <h2 class="ForCopyMessage">Копировать</h2>
+
+
+        <div class="ContainerOllama">
+            <h2 class="Model">Ollama</h2>
+            <h2 class="ModelName">Model name: <span class="SpanModel">mistral:7b</span></h2>
+        </div>
+
+        {% if mode == "chat" %}
+            <h2 class="Header">{{answer}}</h2>
+            <i class="fi fi-sr-copy CopyHeader"></i>
+            <h2 class="ForCopyHeader">Копировать</h2>
+        {% endif %}
+
+
+        {% if mode == "code" %}
+            <h2 class="Header">{{theory}}</h2>
+            <i class="fi fi-sr-copy CopyHeader"></i>
+            <h2 class="ForCopyHeader">Копировать</h2>
+
+            <div class="CodeBox">
+                <i class="fi fi-sr-copy CopyCode"></i>
+                <h2 class="ForCopyCode">Копировать</h2>
+                <h2 class="Language">{{language}}</h2>
+                <pre style="margin-top: 40px" class="BoxCode">{{code}}</pre>
+            </div>
+        {% endif %}
+    </div>
+    </div>
+</form>
+<script>
+const Account = document.querySelector('.Account')
+const Password = document.querySelector('.Password')
+const Game = document.querySelector('.Game')
+const Tasks = document.querySelector('.Tasks')
+const ButtonCreateTask = document.querySelector('.ButtonCreateTask')
+const AiAgent = document.querySelector('.AiAgent')
+const Home = document.querySelector('.Home')
+
+const CheckCharacter = document.querySelector('.CheckCharacter')
+const CrossCharacter = document.querySelector('.CrossCharacter')
+const CheckDigits = document.querySelector('.CheckDigits')
+const CrossDigits = document.querySelector('.CrossDigits')
+const characterState = document.getElementById('characterState');
+const digitsState = document.getElementById('digitsState');
+const ResultGeneratePassword = document.querySelector('.ResultGeneratePassword')
+const CopyResultGeneratePassword = document.querySelector('.CopyResultGeneratePassword')
+const DeleteFromAccount = document.querySelector('.DeleteFromAccount')
+
+
+const ContainerAccount = document.querySelector('.ContainerAccount')
+const ContainerPassword = document.querySelector('.ContainerPassword')
+const ContainerCubes = document.querySelector('.ContainerCubes')
+const ContainerTasks = document.querySelector('.ContainerTasks')
+const ContainerCreateTasks = document.querySelector('.ContainerCreateTasks')
+const ContainerAgent = document.querySelector('.ContainerAgent')
+
+const CubeCodeBoxCSS = document.querySelector('.CubeCodeBoxCSS')
+const CubeCodeBoxHTML = document.querySelector('.CubeCodeBoxHTML')
+const SelectCSS = document.querySelector('.SelectCSS')
+const SelectHTML = document.querySelector('.SelectHTML')
+const CopyForCodeCSS = document.querySelector('.CopyForCodeCSS')
+const CopyForCodeHTML = document.querySelector('.CopyForCodeHTML')
+
+const textarea = document.querySelector('textarea')
+const Header = document.querySelector('.Header')
+const CopyHeader = document.querySelector('.CopyHeader')
+const CopyCode = document.querySelector('.CopyCode')
+const CodeBox = document.querySelector('.CodeBox')
+const icon = document.querySelector('.CopyMessage')
+const Message = document.querySelector('.Message')
+const AgentForm = document.querySelector('.AgentForm')
+const ContainerOllama = document.querySelector('.ContainerOllama')
+const bars = document.querySelector('.bars')
+
+
+
+
+function DisplayNoneForContainers() {
+    ContainerAccount.style.display = 'none';
+    ContainerPassword.style.display = 'none';
+    ContainerCubes.style.display = 'none';
+    ContainerTasks.style.display = 'none';
+    ContainerCreateTasks.style.display = 'none';
+    ContainerAgent.style.display = 'none';
+};
+
+Account.addEventListener('click', function() {
+    DisplayNoneForContainers();
+    ContainerAccount.style.display = 'flex';
+    localStorage.setItem('item', 'account');
+});
+
+Password.addEventListener('click', function() {
+    DisplayNoneForContainers();
+    ContainerPassword.style.display = 'flex';
+    localStorage.setItem('item', 'password');
+});
+
+Game.addEventListener('click', function() {
+    DisplayNoneForContainers();
+    ContainerCubes.style.display = 'flex';
+    localStorage.setItem('item', 'game');
+});
+
+Tasks.addEventListener('click', function() {
+    DisplayNoneForContainers();
+    ContainerTasks.style.display = 'flex';
+    localStorage.setItem('item', 'tasks');
+});
+
+ButtonCreateTask.addEventListener('click', function() {
+    DisplayNoneForContainers();
+    ContainerCreateTasks.style.display = 'flex';
+});
+
+AiAgent.addEventListener('click', function() {
+    DisplayNoneForContainers();
+    ContainerAgent.style.display = 'flex';
+    localStorage.setItem('item', 'agent');
+});
+
+
+
+
+DeleteFromAccount.addEventListener('click', function() {
+    window.location.href='http://localhost:8000/account-delete/{{person.Name}}'
+});
+
+Home.addEventListener('click', function() {
+    window.location.href='http://localhost:8000/register/'
+});
+
+
+
+CopyResultGeneratePassword.addEventListener('click', function() {
+    navigator.clipboard.writeText(ResultGeneratePassword.textContent);
+    CopyResultGeneratePassword.classList.add('AnimCopy');
+    setTimeout(() => {CopyResultGeneratePassword.classList.remove('AnimCopy')}, 1000);
+});
+
+CopyForCodeCSS.addEventListener('click', function() {
+    navigator.clipboard.writeText(CubeCodeBoxCSS.textContent);
+    CopyForCodeCSS.classList.add('AnimCopy');
+    setTimeout(() => {CopyForCodeCSS.classList.remove('AnimCopy')}, 1000);
+});
+
+CopyForCodeHTML.addEventListener('click', function() {
+    navigator.clipboard.writeText(CubeCodeBoxHTML.textContent);
+    CopyForCodeHTML.classList.add('AnimCopy');
+    setTimeout(() => {CopyForCodeHTML.classList.remove('AnimCopy')}, 1000);
+});
+
+
+
+CheckCharacter.addEventListener('click', function() {
+    CheckCharacter.style.display = 'none';
+    CrossCharacter.style.display = 'flex';
+    characterState.value = 'off';
+});
+
+CrossCharacter.addEventListener('click', function() {
+    CheckCharacter.style.display = 'flex';
+    CrossCharacter.style.display = 'none';
+    characterState.value = 'on';
+});
+
+
+CrossDigits.addEventListener('click', function() {
+    CheckDigits.style.display = 'flex';
+    CrossDigits.style.display = 'none';
+    digitsState.value = 'on';
+});
+
+CheckDigits.addEventListener('click', function() {
+    CheckDigits.style.display = 'none';
+    CrossDigits.style.display = 'flex';
+    digitsState.value = 'off';
+});
+
+
+
+SelectCSS.addEventListener('click', function() {
+    CubeCodeBoxCSS.style.display = 'flex';
+    CubeCodeBoxHTML.style.display = 'none';
+    SelectHTML.style.backgroundColor = 'rgb(25, 25, 100)';
+    SelectCSS.style.backgroundColor = 'rgb(50, 50, 125)';
+    CopyForCodeCSS.style.display = 'flex';
+    CopyForCodeHTML.style.display = 'none';
+});
+
+SelectHTML.addEventListener('click', function() {
+    CubeCodeBoxCSS.style.display = 'none';
+    CubeCodeBoxHTML.style.display = 'flex';
+    SelectCSS.style.backgroundColor = 'rgb(25, 25, 100)';
+    SelectHTML.style.backgroundColor = 'rgb(50, 50, 125)';
+    CopyForCodeCSS.style.display = 'none';
+    CopyForCodeHTML.style.display = 'flex';
+});
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const Select = localStorage.getItem('item')
+
+    DisplayNoneForContainers();
+
+    if (Select === 'tasks'){
+        ContainerTasks.style.display = 'flex';
+    } else if (Select === 'account'){
+        ContainerAccount.style.display = 'flex';
+    } else if (Select === 'agent'){
+        ContainerAgent.style.display = 'flex';
+    } else if (Select === 'password'){
+        ContainerPassword.style.display = 'flex';
+    } else if (Select === 'game'){
+        ContainerCubes.style.display = 'flex';
+    };
+});
+
+
+
+
+
+
+
+textarea.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+});
+
+Message.addEventListener('input', () => {
+    Message.style.height = 'auto';
+    Message.style.height = Message.Height + 'px';
+});
+
+
+
+
+function SendFormAndElements(event) {
+    if (textarea.value.trim() === "") {
+        event.preventDefault();
+        return;
+    }
+
+    localStorage.setItem("text", textarea.value);
+    bars.style.display = 'flex';
+    Message.style.display = 'block';
+    event.preventDefault();
+    ContainerOllama.style.display = 'none';
+    AgentForm.submit();
+    Message.textContent = textarea.value;
+    textarea.value = "";
+    CopyHeader.style.display = 'none';
+    Header.style.display = 'none';
+    CopyMessage.style.display = 'none';
+};
+
+textarea.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        SendFormAndElements(event);
+    }
+});
+
+if (CodeBox && CodeBox.textContent.trim() !== "") {
+    CodeBox.style.display = 'block';
+    Header.style.display = 'block';
+    Message.style.display = 'block';
+    icon.style.display = 'inline-block';
+    CopyHeader.style.display = 'inline-block';
+    Message.textContent = localStorage.getItem("text") || "";
+    ContainerOllama.style.display = 'none';
+    CopyCode.style.display = 'inline-block';
+} else if (Message.textContent.trim() !== "" || Header.textContent.trim() !== "") {
+    Message.style.display = 'block';
+    icon.style.display = 'inline-block';
+    CopyHeader.style.display = 'inline-block';
+    Message.textContent = localStorage.getItem("text") || "";
+    ContainerOllama.style.display = 'none';
+};
+
+
+CopyHeader.addEventListener('click', function() {
+    CopyHeader.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(Header.textContent);
+    setTimeout(() => {CopyHeader.classList.remove('AnimForCopy')}, 1500);
+});
+
+icon.addEventListener('click', function() {
+    icon.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(Message.textContent);
+    setTimeout(() => {icon.classList.remove('AnimForCopy')}, 1500);
+});
+
+CopyCode.addEventListener('click', function() {
+    const CodeText = document.querySelector('pre.BoxCode').textContent.trim();
+    CopyCode.classList.add('AnimForCopy');
+    navigator.clipboard.writeText(CodeText);
+    setTimeout(() => {CopyCode.classList.remove('AnimForCopy')}, 1500);
+});
+</script>
+</body>
+</html>
